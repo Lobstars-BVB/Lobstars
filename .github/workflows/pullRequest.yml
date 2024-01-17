@@ -22,4 +22,4 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Check for linting
-        run: dev:check
+        run: yarn dev:check
