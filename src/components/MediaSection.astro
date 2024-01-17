@@ -1,0 +1,17 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section class="p-4">
+  <h2 class="text-lg font-semibold">Team in Action</h2>
+  <div class="grid grid-cols-2 gap-4 mt-4">
+    <img src="https://dummyimage.com/300x200" alt="Dummy Image 1" />
+    <img src="https://dummyimage.com/300x200" alt="Dummy Image 2" />
+    <img src="https://dummyimage.com/300x200" alt="Dummy Image 3" />
+    <img src="https://dummyimage.com/300x200" alt="Dummy Image 4" />
+  </div>
+</section>

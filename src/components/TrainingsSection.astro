@@ -1,0 +1,12 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section id={id} class="p-4">
+  <p class="text-lg">Training Time: 12:00</p>
+  <p class="text-lg">Training Place: Berlin</p>
+</section>
