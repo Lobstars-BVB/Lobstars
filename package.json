@@ -2,9 +2,13 @@
   "name": "lobstars-site",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
     "dev": "astro dev",
     "dev:format": "prettier --write ./src",
+    "dev:check": "prettier --check ./src",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
