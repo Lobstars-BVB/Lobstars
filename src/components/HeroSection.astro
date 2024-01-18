@@ -9,9 +9,24 @@ const { id } = Astro.props;
 const { title } = await getCMS("hero");
 ---
 
-<section id={id} class="bg-blue-500 text-white py-10 px-4">
+<section id={id} class="py-10 px-4">
   <div class="container mx-auto">
-    <h1 class="text-4xl font-bold mb-4" id="title">{title}</h1>
+    <div class="flex flex-col-reverse md:flex-row">
+      <div class="md:w-1/2">
+        <img
+          src="https://dummyimage.com/600x400"
+          alt="Hero Image"
+          class="w-full"
+        />
+      </div>
+      <div class="md:w-1/2 md:pl-8 md:flex md:flex-col md:justify-center">
+        <h1 class="text-4xl font-bold mb-4" id="title">
+          {title}
+        </h1>
+        <h2 class="text-2xl text-gray-600" id="subtitle">
+          Placeholder for a subtitle
+        </h2>
+      </div>
+    </div>
   </div>
 </section>
-../utils/getCMS

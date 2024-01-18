@@ -1,4 +1,6 @@
 ---
+import TrainingView from "./TrainingView.astro";
+
 interface Props {
   id: string;
 }
@@ -6,7 +8,25 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<section id={id} class="p-4">
-  <p class="text-lg">Training Time: 12:00</p>
-  <p class="text-lg">Training Place: Berlin</p>
+<section id={id} class="p-4 flex flex-col lg:flex-row">
+  <div class="lg:w-1/2">
+    <TrainingView
+      title="Outdoor Training"
+      day="Monday"
+      time="12:00"
+      address="Alexanderplatz 1, Berlin"
+      openMapURL="https://www.openstreetmap.org/export/embed.html?bbox=13.3984,52.5547,13.3984,52.5547&layer=mapnik"
+      googleMapURL="https://www.google.com/maps/place/52.5547,13.3984"
+    />
+  </div>
+  <div class="lg:w-1/2">
+    <TrainingView
+      title="Indoor Training"
+      day="Tuesday"
+      time="12:00"
+      address="Alexanderplatz 1, Berlin"
+      openMapURL="https://www.openstreetmap.org/export/embed.html?bbox=13.3984,52.5547,13.3984,52.5547&layer=mapnik"
+      googleMapURL="https://www.google.com/maps/place/52.5547,13.3984"
+    />
+  </div>
 </section>
