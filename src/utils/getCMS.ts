@@ -10,7 +10,9 @@ const jsonSchema = z.object({
 const heroSchema = z
   .object({
     title: z.string(),
+    subtitle: z.string(),
   })
+  .partial()
   .array();
 
 type CmsType = "hero";

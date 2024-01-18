@@ -6,7 +6,7 @@ interface Props {
 
 const { id } = Astro.props;
 
-const { title } = await getCMS("hero");
+const { title, subtitle } = await getCMS("hero");
 ---
 
 <section id={id} class="py-10 px-4">
@@ -24,7 +24,7 @@ const { title } = await getCMS("hero");
           {title}
         </h1>
         <h2 class="text-2xl text-gray-600" id="subtitle">
-          Placeholder for a subtitle
+          {subtitle}
         </h2>
       </div>
     </div>
