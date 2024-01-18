@@ -1,28 +1,17 @@
 ---
+import { getCMS } from "../utils/getCMS";
 interface Props {
   id: string;
 }
 
 const { id } = Astro.props;
 
-let PROJECT_ID = "1f2dy4kx";
-let DATASET = "production";
-let QUERY = encodeURIComponent('*[_type == "hero"]');
-
-let URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-
-const { title, subtitle } = await fetch(URL)
-  .then((res) => res.json())
-  .then(({ result }) => {
-    const { title, subtitle } = result[0];
-
-    return { title, subtitle };
-  });
+const { title } = await getCMS("hero");
 ---
 
 <section id={id} class="bg-blue-500 text-white py-10 px-4">
   <div class="container mx-auto">
     <h1 class="text-4xl font-bold mb-4" id="title">{title}</h1>
-    <p class="text-lg" id="subitle">{subtitle}</p>
   </div>
 </section>
+../utils/getCMS
