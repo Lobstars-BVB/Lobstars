@@ -19,8 +19,7 @@ const { title, day, time, address, openMapURL, openMapIframeSrc, googleMapURL } 
   <p class="text-lg">Address: {address}</p>
   <div class="map-container">
     <iframe src={openMapIframeSrc} width="400px" height="300px"></iframe>
-    <p><small><a href={openMapURL}>View Larger Map</a></small></p>
-
+    <p><small><a target="_blank" rel="noopener noreferrer" href={openMapURL}>View Larger Map</a></small></p>
 
     <small>
       <a href={googleMapURL} target="_blank" rel="noopener noreferrer">
