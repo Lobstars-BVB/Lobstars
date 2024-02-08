@@ -15,11 +15,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version-file: ".tool-versions"
+
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
+
       - name: Check for linting
         run: yarn dev:check
