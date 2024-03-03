@@ -4,9 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        main: "#933f3f",
-        secondary: "#c2938b",
+        main: "#141204",
+        secondary: "#933f3f",
         background: "#eddccc",
+        "background-secondary": "#f4e3d7",
       },
       fontFamily: {
         headline: ["Roboto", "sans-serif"],

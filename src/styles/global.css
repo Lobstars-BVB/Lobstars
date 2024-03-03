@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  @apply bg-background;
+@layer components {
+  html {
+    @apply bg-background;
+  }
+
+  .section-container {
+    @apply px-10 py-14;
+  }
 }

@@ -6,8 +6,11 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<header class="sticky left-0 bg-gray-100">
-  <nav class="mx-auto flex max-w-screen-xl justify-end">
-    <a href="#contact" class="text-gray-500">Contact</a>
+<header class="sticky top-0 z-50 bg-background">
+  <nav
+    class="flex justify-end gap-4 border-b border-secondary p-4 text-xs font-bold text-secondary sm:text-base"
+  >
+    <a href="#training">Train With Us</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>

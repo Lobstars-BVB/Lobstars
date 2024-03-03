@@ -12,12 +12,12 @@ const { id } = Astro.props;
 
 <section
   id={id}
-  class="flex flex-col items-center gap-10 sm:flex-row md:h-screen"
+  class="section-container flex h-screen flex-col items-center justify-center gap-10 sm:flex-row-reverse"
 >
-  <div class="w-3/5">
-    <Image src={team} alt="lobstars logo" />
-  </div>
-  <div class="w-1/3">
+  <div class="w-2/3 sm:w-1/3">
     <Image src={logo} alt="lobstars logo" />
+  </div>
+  <div class="sm:w-3/5">
+    <Image src={team} alt="lobstars team" />
   </div>
 </section>
