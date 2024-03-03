@@ -2,7 +2,18 @@
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        main: "#933f3f",
+        secondary: "#c2938b",
+        background: "#eddccc",
+      },
+      fontFamily: {
+        headline: ["Roboto", "sans-serif"],
+        subline: ["Arial", "sans-serif"],
+        paragraph: ["Helvetica", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };

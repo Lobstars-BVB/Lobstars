@@ -11,12 +11,16 @@ import "../styles/global.css";
 ---
 
 <Layout title="Welcome to Lobstars">
-  <main class="pb-10">
+  <main>
     <HeaderSection id="header" />
-    <HeroSection id="hero" />
-    <AboutSection id="about" />
-    <MediaSection id="media" />
-    <TrainingsSection id="training" />
-    <ContactSection id="contact" />
+    <div class="mx-auto max-w-screen-xl">
+      <div class="px-10 pb-20">
+        <HeroSection id="hero" />
+        <AboutSection id="about" />
+        <MediaSection id="media" />
+        <TrainingsSection id="training" />
+        <ContactSection id="contact" />
+      </div>
+    </div>
   </main>
 </Layout>
