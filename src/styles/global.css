@@ -8,8 +8,12 @@
     scroll-behavior: smooth;
   }
 
-  .section-container {
+  .hero-container {
     @apply mx-auto max-w-screen-xl px-10 py-14;
+  }
+
+  .section-container {
+    @apply mx-auto max-w-screen-xl px-10 py-32;
   }
 
   .content-container {
