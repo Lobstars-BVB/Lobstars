@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  html {
+    @apply bg-background;
+  }
+
+  .section-container {
+    @apply px-10 py-14;
+  }
+}

@@ -4,20 +4,10 @@ interface Props {
   day: string;
   time: string;
   address: string;
-  openMapURL: string;
-  openMapIframeSrc: string;
   googleMapURL: string;
 }
 
-const {
-  title,
-  day,
-  time,
-  address,
-  openMapURL,
-  openMapIframeSrc,
-  googleMapURL,
-} = Astro.props;
+const { title, day, time, address, googleMapURL } = Astro.props;
 ---
 
 <div class="p-5">
@@ -26,9 +16,6 @@ const {
   <p class="text-lg">Time: {time}</p>
   <p class="text-lg">Address: {address}</p>
   <div class="map-container">
-    <iframe src={openMapIframeSrc} width="400px" height="300px"></iframe>
-    <p><small><a href={openMapURL}>View Larger Map</a></small></p>
-
     <small>
       <a href={googleMapURL} target="_blank" rel="noopener noreferrer">
         Google Maps
