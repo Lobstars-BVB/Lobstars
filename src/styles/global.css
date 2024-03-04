@@ -9,10 +9,10 @@
   }
 
   .section-container {
-    @apply px-10 py-14 max-w-screen-xl mx-auto;
+    @apply mx-auto max-w-screen-xl px-10 py-14;
   }
 
-    .content-container {
-      @apply rounded-sm border border-secondary overflow-hidden;
-    }
+  .content-container {
+    @apply overflow-hidden rounded-sm border border-secondary;
+  }
 }
