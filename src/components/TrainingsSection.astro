@@ -8,22 +8,31 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<section id={id} class="section-container flex flex-col lg:flex-row">
-  <div class="lg:w-1/2">
+<section
+  id={id}
+  class="section-container flex flex-col gap-10 lg:flex-row lg:gap-20"
+>
+  <div class="max-w-2xl lg:w-1/2">
     <TrainingView
       title="Outdoor Training"
-      day="Wednesday"
+      day="Wednesday Evenings"
       time="18:30"
-      address="Sportverein Berliner Verkehrs-Betriebe 49 e.V, Siegfriedstraße 71, 10365 Berlin"
+      place="Sportverein Berliner Verkehrs-Betriebe 49 e.V"
+      address="Siegfriedstraße 71, 10365 Berlin"
+      openMapURL="https://www.openstreetmap.org/?mlat=52.52968&mlon=13.50018#map=19/52.52968/13.50018"
+      openMapIframeSrc="https://www.openstreetmap.org/export/embed.html?bbox=13.497312963008882%2C52.52867132796529%2C13.503055572509767%2C52.53069303250278&layer=mapnik&marker=52.52968219186747%2C13.500184267759323"
       googleMapURL="https://maps.app.goo.gl/Q6oawo5PQGuAqEjo7"
     />
   </div>
-  <div class="lg:w-1/2">
+  <div class="max-w-2xl lg:w-1/2">
     <TrainingView
       title="Indoor Training"
-      day="Saturday"
+      day="Saturday Afternoons"
       time="12:00"
-      address="Sporthalle der Grundschule am Röderplatz, Elli-Voigt-Straße 9-8, 10367 Berlin"
+      address="Elli-Voigt-Straße 9-8, 10367 Berlin"
+      place="Sporthalle der Grundschule am Röderplatz"
+      openMapURL="https://www.openstreetmap.org/?mlat=52.52892&mlon=13.48272#map=19/52.52892/13.48272"
+      openMapIframeSrc="https://www.openstreetmap.org/export/embed.html?bbox=13.479846417903902%2C52.52790602569428%2C13.485589027404787%2C52.52992776546085&layer=mapnik&marker=52.52891690721109%2C13.482717722654343"
       googleMapURL="https://maps.app.goo.gl/teZL7DiNjGibmvbQA"
     />
   </div>

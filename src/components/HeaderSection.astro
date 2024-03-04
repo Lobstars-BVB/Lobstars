@@ -1,4 +1,7 @@
 ---
+import logo from "../assets/logo.png";
+import { Image } from "astro:assets";
+
 interface Props {
   id: string;
 }
@@ -6,11 +9,16 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<header class="sticky top-0 z-50 bg-background">
+<header class="sticky top-0 z-50 border-b border-secondary bg-background">
   <nav
-    class="flex justify-end gap-4 border-b border-secondary p-4 text-xs font-bold text-secondary sm:text-base"
+    class="mx-auto flex max-w-screen-xl items-center justify-between px-10 py-2 font-bold text-secondary"
   >
-    <a href="#training">Train With Us</a>
-    <a href="#contact">Contact</a>
+    <a href="#hero">
+      <Image src={logo} alt="lobstars logo" width={40} />
+    </a>
+    <div class="flex gap-4">
+      <a href="#training">Train With Us</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 </header>
