@@ -13,7 +13,7 @@
   }
 
   .section-container {
-    @apply mx-auto max-w-screen-xl px-10 py-32;
+    @apply mx-auto max-w-screen-xl px-10 py-20;
   }
 
   .content-container {
