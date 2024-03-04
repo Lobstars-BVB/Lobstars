@@ -6,6 +6,7 @@ import AboutSection from "../components/AboutSection.astro";
 import TrainingsSection from "../components/TrainingsSection.astro";
 import ContactSection from "../components/ContactSection.astro";
 import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
 
 import "../styles/global.css";
 ---
@@ -13,12 +14,11 @@ import "../styles/global.css";
 <Layout title="Welcome to Lobstars">
   <main class="h-full w-full">
     <HeaderSection id="header" />
-    <div class="pb-20">
-      <HeroSection id="hero" />
-      <AboutSection id="about" />
-      <MediaSection id="media" />
-      <TrainingsSection id="training" />
-      <ContactSection id="contact" />
-    </div>
+    <HeroSection id="hero" />
+    <AboutSection id="about" />
+    <MediaSection id="media" />
+    <TrainingsSection id="training" />
+    <ContactSection id="contact" />
+    <FooterSection />
   </main>
 </Layout>
