@@ -1,4 +1,14 @@
 ---
+import { Image } from "astro:assets";
+import team2 from "../assets/team-2.jpg";
+import team3 from "../assets/team-3.jpg";
+import team4 from "../assets/team-4.jpg";
+import team5 from "../assets/team-5.jpg";
+import action2 from "../assets/action-2.jpg";
+import action3 from "../assets/action-3.jpg";
+import action4 from "../assets/action-4.jpg";
+import action1 from "../assets/action-1.jpg";
+
 interface Props {
   id: string;
 }
@@ -7,11 +17,30 @@ const { id } = Astro.props;
 ---
 
 <section class="section-container">
-  <h2 class="text-lg font-semibold">Team in Action</h2>
-  <div class="mt-4 grid grid-cols-2 gap-4">
-    <img src="https://dummyimage.com/300x200" alt="Dummy Image 1" />
-    <img src="https://dummyimage.com/300x200" alt="Dummy Image 2" />
-    <img src="https://dummyimage.com/300x200" alt="Dummy Image 3" />
-    <img src="https://dummyimage.com/300x200" alt="Dummy Image 4" />
+  <div class="mt-4 grid gap-6 sm:grid-cols-2">
+    <div class="content-container">
+      <Image src={team3} alt="team photo" loading="lazy" />
+    </div>
+    <div class="content-container">
+      <Image src={action1} alt="team photo" loading="lazy" />
+    </div>
+    <div class="content-container">
+      <Image src={action3} alt="team photo" loading="lazy" />
+    </div>
+    <div class="content-container">
+      <Image src={team5} alt="team photo" loading="lazy" />
+    </div>
+    <div class="content-container">
+      <Image src={team4} alt="team photo" loading="lazy" />
+    </div>
+    <div class="content-container">
+      <Image src={action4} alt="team photo" loading="lazy" />
+    </div>
+    <div class="content-container">
+      <Image src={action2} alt="team photo" loading="lazy" />
+    </div>
+    <div class="content-container">
+      <Image src={team2} alt="team photo" loading="lazy" />
+    </div>
   </div>
 </section>

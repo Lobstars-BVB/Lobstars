@@ -5,9 +5,14 @@
 @layer components {
   html {
     @apply bg-background;
+    scroll-behavior: smooth;
   }
 
   .section-container {
-    @apply px-10 py-14;
+    @apply mx-auto max-w-screen-xl px-10 py-14;
+  }
+
+  .content-container {
+    @apply overflow-hidden rounded-sm border border-secondary;
   }
 }
