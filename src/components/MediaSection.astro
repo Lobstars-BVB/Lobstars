@@ -16,13 +16,6 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<link
-  rel="stylesheet"
-  href="../../node_modules/lite-youtube-embed/src/lite-yt-embed.css"
-/>
-<script src="../../node_modules/lite-youtube-embed/src/lite-yt-embed.js"
-></script>
-
 <section class="section-container">
   <div class="mt-4 grid gap-6 sm:grid-cols-2">
     <div class="content-container">
@@ -52,10 +45,6 @@ const { id } = Astro.props;
   </div>
   <div class="mx-auto max-w-xl pt-20">
     <lite-youtube videoid="2CxKZdQnQhQ" playlabel="Lobstars vs DJ Dahlem 2023"
-    ></lite-youtube>
-  </div>
-  <div class="mx-auto max-w-xl pt-10">
-    <lite-youtube videoid="ukJZ3qtpyks" playlabel="Lobstars Training"
     ></lite-youtube>
   </div>
 </section>
