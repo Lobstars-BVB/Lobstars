@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import MediaImage from "./MediaImage.astro";
+
 import team2 from "../assets/team-2.jpg";
 import team3 from "../assets/team-3.jpg";
 import team4 from "../assets/team-4.jpg";
@@ -18,29 +20,13 @@ const { id } = Astro.props;
 
 <section class="section-container">
   <div class="mt-4 grid gap-6 sm:grid-cols-2">
-    <div class="content-container">
-      <Image src={team3} alt="team photo" loading="lazy" />
-    </div>
-    <div class="content-container">
-      <Image src={action1} alt="team photo" loading="lazy" />
-    </div>
-    <div class="content-container">
-      <Image src={action3} alt="team photo" loading="lazy" />
-    </div>
-    <div class="content-container">
-      <Image src={team5} alt="team photo" loading="lazy" />
-    </div>
-    <div class="content-container">
-      <Image src={team4} alt="team photo" loading="lazy" />
-    </div>
-    <div class="content-container">
-      <Image src={action4} alt="team photo" loading="lazy" />
-    </div>
-    <div class="content-container">
-      <Image src={action2} alt="team photo" loading="lazy" />
-    </div>
-    <div class="content-container">
-      <Image src={team2} alt="team photo" loading="lazy" />
-    </div>
+    <MediaImage imagePath="/src/assets/team-3.jpg" altText="team photo" />
+    <MediaImage imagePath="/src/assets/action-1.jpg" altText="team photo" />
+    <MediaImage imagePath="/src/assets/action-3.jpg" altText="team photo" />
+    <MediaImage imagePath="/src/assets/team-5.jpg" altText="team photo" />
+    <MediaImage imagePath="/src/assets/team-4.jpg" altText="team photo" />
+    <MediaImage imagePath="/src/assets/action-4.jpg" altText="team photo" />
+    <MediaImage imagePath="/src/assets/action-2.jpg" altText="team photo" />
+    <MediaImage imagePath="/src/assets/team-2.jpg" altText="team photo" />
   </div>
 </section>
