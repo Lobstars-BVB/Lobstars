@@ -15,23 +15,11 @@ const { id } = Astro.props;
   class="hero-container flex h-screen flex-col items-center justify-center gap-10 sm:flex-row-reverse"
 >
   <div class="w-2/3 sm:w-2/5">
-    <Image
-      src={logo}
-      alt="lobstars logo"
-      loading="eager"
-      quality="high"
-      densities={[1.5, 2]}
-    />
+    <Image src={logo} alt="lobstars logo" loading="eager" quality="high" />
   </div>
   <div class="sm:w-3/5">
     <div class="content-container">
-      <Image
-        src={team}
-        alt="lobstars team"
-        loading="eager"
-        densities={[1.5, 2]}
-        quality="high"
-      />
+      <Image src={team} alt="lobstars team" loading="eager" quality="high" />
     </div>
   </div>
 </section>
