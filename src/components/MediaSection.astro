@@ -14,33 +14,24 @@ interface Props {
 }
 
 const { id } = Astro.props;
+
+const imageProps = {
+  widths: [350, 400, 600],
+  sizes: "(max-width: 450px) 350px, (max-width: 800) 400px, 600px",
+  quality: 30,
+};
+
+const photos = [team3, action1, action3, team5, team4, action4, action2, team2];
 ---
 
-<section class="section-container">
+<section class="section-container" id={id}>
   <div class="mt-4 grid gap-6 sm:grid-cols-2">
-    <div class="content-container">
-      <Image src={team3} alt="team photo" quality={20} />
-    </div>
-    <div class="content-container">
-      <Image src={action1} alt="team photo" quality={20} />
-    </div>
-    <div class="content-container">
-      <Image src={action3} alt="team photo" quality={20} />
-    </div>
-    <div class="content-container">
-      <Image src={team5} alt="team photo" quality={20} />
-    </div>
-    <div class="content-container">
-      <Image src={team4} alt="team photo" quality={20} />
-    </div>
-    <div class="content-container">
-      <Image src={action4} alt="team photo" quality={20} />
-    </div>
-    <div class="content-container">
-      <Image src={action2} alt="team photo" quality={20} />
-    </div>
-    <div class="content-container">
-      <Image src={team2} alt="team photo" quality={20} />
-    </div>
+    {
+      photos.map((photo, i) => (
+        <div class="content-container">
+          <Image src={photo} alt={`team-photo-${i + 1}`} {...imageProps} />
+        </div>
+      ))
+    }
   </div>
 </section>

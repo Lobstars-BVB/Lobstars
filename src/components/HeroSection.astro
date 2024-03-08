@@ -8,6 +8,12 @@ interface Props {
 }
 
 const { id } = Astro.props;
+
+const imageProps = {
+  widths: [240, 400, 600],
+  sizes: "(max-width: 360px) 240px, (max-width: 800) 400px, 600px",
+  quality: 20,
+};
 ---
 
 <section
@@ -19,7 +25,14 @@ const { id } = Astro.props;
   </div>
   <div class="sm:w-3/5">
     <div class="content-container">
-      <Image src={team} alt="lobstars team" loading="eager" quality={50} />
+      <Image
+        src={team}
+        alt="lobstars team"
+        loading="eager"
+        widths={[350, 500, 700]}
+        sizes="(max-width: 450px) 350, (max-width: 800) 500px, 700px"
+        quality={50}
+      />
     </div>
   </div>
 </section>
