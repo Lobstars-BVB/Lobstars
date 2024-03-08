@@ -16,7 +16,7 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<section class="section-container">
+<section class="section-container" id={id}>
   <div class="mt-4 grid gap-6 sm:grid-cols-2">
     <div class="content-container">
       <Image src={team3} alt="team photo" quality={20} />
