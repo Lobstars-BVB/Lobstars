@@ -13,16 +13,12 @@ const { id } = Astro.props;
   class="fixed left-0 right-0 z-50 border-b border-secondary bg-background"
 >
   <nav
-    class="mx-auto flex max-w-screen-xl items-center justify-between px-10 py-1"
+    class="mx-auto flex max-w-screen-xl items-center justify-between px-10 py-2"
   >
     <a href="#hero">
-      <Image
-        src={logo}
-        alt="lobstars logo"
-        quality="med"
-        loading="eager"
-        width={60}
-      />
+      <div class="w-10">
+        <Image src={logo} alt="lobstars logo" quality="med" loading="eager" />
+      </div>
     </a>
     <div class="flex gap-4 text-sm font-bold text-secondary sm:text-base">
       <a href="#training">Train With Us</a>
