@@ -42,7 +42,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <p className="text-l mb-10 text-center text-main">
+      <p className="text-l mb-10 text-center font-medium text-main">
         Interested in joining a training? Other questions? Let us know!
       </p>
       {state === State.Sent && (
@@ -54,43 +54,43 @@ export default function ContactForm() {
       {(state === State.Input || state === State.Sending) && (
         <form className="mx-auto max-w-md" onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="mb-2 block">
+            <label htmlFor="name" className="mb-2 block text-sm font-bold">
               Name:
-              <input
-                type="text"
-                name="name"
-                required
-                className="w-full rounded-md border border-gray-300 px-4 py-2"
-              />
             </label>
+            <input
+              type="text"
+              name="name"
+              required
+              className="w-full rounded-md border border-gray-300 px-4 py-2"
+            />
           </div>
 
           <div className="mb-4">
-            <label className="mb-2 block">
+            <label htmlFor="email" className="mb-2 block text-sm font-bold">
               Email:
-              <input
-                type="email"
-                name="email"
-                required
-                className="w-full rounded-md border border-gray-300 px-4 py-2"
-              />
             </label>
+            <input
+              type="email"
+              name="email"
+              required
+              className="w-full rounded-md border border-gray-300 px-4 py-2"
+            />
           </div>
 
           <div className="mb-4">
-            <label className="mb-2 block">
+            <label htmlFor="message" className="mb-2 block text-sm font-bold">
               Message:
-              <textarea
-                name="message"
-                required
-                className="w-full rounded-md border border-gray-300 px-4 py-2"
-              ></textarea>
             </label>
+            <textarea
+              name="message"
+              required
+              className="h-32 w-full rounded-md border border-gray-300 px-4 py-2"
+            ></textarea>
           </div>
 
           <button
             type="submit"
-            className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600"
+            className="hover:bg-secondary-light rounded bg-secondary px-4 py-2 font-bold text-white"
             disabled={state === State.Sending}
           >
             {state === State.Sending ? "Sending..." : "Submit"}
