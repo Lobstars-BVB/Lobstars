@@ -9,12 +9,23 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<header class="sticky top-0 z-50 border-b border-secondary bg-background">
+<header
+  id={id}
+  class="fixed left-0 right-0 z-50 border-b border-secondary bg-background"
+>
   <nav
-    class="mx-auto flex max-w-screen-xl items-center justify-between px-10 py-2"
+    class="mx-auto flex h-12 max-w-screen-xl items-center justify-between px-10 py-2"
   >
     <a href="#hero">
-      <Image src={logo} alt="lobstars logo" width={40} />
+      <div class="w-10">
+        <Image
+          src={logo}
+          alt="lobstars logo"
+          quality="med"
+          widths={[250, 400]}
+          sizes="(max-width: 450px) 250, 400px"
+        />
+      </div>
     </a>
     <div class="flex gap-4 text-sm font-bold text-secondary sm:text-base">
       <a href="#training">Train With Us</a>

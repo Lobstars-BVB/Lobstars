@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import instagram from "../assets/instagram.png";
+import instagram from "../assets/instagram.svg";
 ---
 
 <footer class="mt-20 border-t border-secondary">
@@ -8,7 +8,7 @@ import instagram from "../assets/instagram.png";
     class="mx-auto flex max-w-screen-xl items-center justify-between px-10 pb-10 pt-5"
   >
     <a
-      class="text-sm font-bold text-secondary underline sm:text-base"
+      class="text-sm font-bold text-secondary hover:underline sm:text-base"
       target="_blank"
       rel="noopener noreferrer"
       href="https://svbvb49.de/frisbee">SV BVB 49 e.V.</a
@@ -18,9 +18,11 @@ import instagram from "../assets/instagram.png";
       rel="noopener noreferrer"
       href="https://www.instagram.com/lobstarsfrisbee"
     >
-      <div class="flex flex-col items-center">
-        <Image src={instagram} alt="lobstars logo" width={50} />
-        <p class="text-sm font-bold text-secondary sm:text-base">
+      <div class="flex flex-col items-center space-y-1">
+        <Image src={instagram} alt="lobstars logo" />
+        <p
+          class="text-sm font-bold text-secondary hover:underline sm:text-base"
+        >
           @lobstarsfrisbee
         </p>
       </div>
