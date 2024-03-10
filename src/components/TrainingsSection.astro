@@ -9,6 +9,7 @@ const { id } = Astro.props;
 ---
 
 <section id={id} class="section-container">
+  <a class="anchor" id={id}></a>
   <div class="flex flex-col gap-10 lg:flex-row lg:gap-20">
     <div class="max-w-2xl lg:w-1/2">
       <TrainingView
@@ -35,7 +36,8 @@ const { id } = Astro.props;
       />
     </div>
   </div>
-  <p class="mt-10 text-center text-sm text-main" id="training-note">
+  <p class="mt-10 text-center text-sm text-main">
+    <a class="anchor" id="training-note"></a>
     <span class="font-bold">* Note:</span> Training times are subject to change.
     Send us a message to confirm the training times before you come.
   </p>

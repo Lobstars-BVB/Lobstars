@@ -19,4 +19,8 @@
   .content-container {
     @apply overflow-hidden rounded-sm border border-secondary;
   }
+
+  a.anchor {
+    @apply block relative -top-14 invisible
+  }
 }
