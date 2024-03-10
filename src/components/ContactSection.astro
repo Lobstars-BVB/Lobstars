@@ -1,4 +1,5 @@
 ---
+import ContactForm from "./ContactForm";
 interface Props {
   id: string;
 }
@@ -6,14 +7,7 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<section class="section-container pb-24">
+<section class="section-container">
   <a class="anchor" id={id}></a>
-  <div class="space-y-2 text-center text-main">
-    <p>Interested in joining a training? Other questions? Let us know!</p>
-    <p>
-      Send us an email at <span class="font-bold text-secondary"
-        >lobstars.bvb@<span style="display:none;">ignore-</span>gmail.com</span
-      >
-    </p>
-  </div>
+  <ContactForm client:load />
 </section>
