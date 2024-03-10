@@ -21,6 +21,6 @@
   }
 
   a.anchor {
-    @apply block relative -top-14 invisible
+    @apply invisible relative -top-14 block;
   }
 }

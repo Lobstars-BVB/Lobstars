@@ -99,7 +99,7 @@ export default function ContactForm() {
 
           <button
             type="submit"
-            className="hover:bg-secondary-light rounded bg-secondary px-4 py-2 font-bold text-white"
+            className="rounded bg-secondary px-4 py-2 font-bold text-white hover:bg-secondary-light"
             disabled={state === State.Sending}
           >
             {state === State.Sending ? "Sending..." : "Submit"}
