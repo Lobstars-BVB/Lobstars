@@ -49,7 +49,16 @@ export default function ContactForm() {
         <p className="text-l mb-10 text-center">Thanks for contacting us!</p>
       )}
       {state === State.Error && (
-        <p className="text-l mb-10 text-center">Something went wrong.</p>
+        <div className="text-l mb-10 text-center">
+          <p>Something went wrong.</p>
+          <p>
+            Send us an email at{" "}
+            <span className="font-bold text-secondary">
+              lobstars.bvb@<span className="display: none;">ignore-</span>
+              gmail.com
+            </span>
+          </p>
+        </div>
       )}
       {(state === State.Input || state === State.Sending) && (
         <form className="mx-auto max-w-md" onSubmit={handleSubmit}>
