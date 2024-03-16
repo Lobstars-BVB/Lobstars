@@ -24,6 +24,7 @@ const { id } = Astro.props;
         alt="Lobstars logo"
         quality={50}
         widths={[350, 500, 700]}
+        loading="eager"
         sizes="(max-width: 450px) 350, (max-width: 800) 500px, 700px"
       />
     </div>
@@ -34,6 +35,7 @@ const { id } = Astro.props;
           alt="Lobstars Ultimate Frisbee Team"
           widths={[350, 500, 800]}
           sizes="(max-width: 450px) 350, (max-width: 800) 500px, 800px"
+          loading="eager"
           quality={50}
         />
       </div>
