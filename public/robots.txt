@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lobstars-frisbee.club/sitemap-index.xml
