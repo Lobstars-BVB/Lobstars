@@ -8,6 +8,30 @@
     scroll-behavior: smooth;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    @apply text-main;
+  }
+
+  p a {
+    @apply text-secondary;
+  }
+
+  h1 {
+    @apply text-base font-bold sm:text-lg;
+  }
+
+  h3 {
+    @apply text-sm font-bold sm:text-base;
+  }
+
+  p {
+    @apply text-sm sm:text-base;
+  }
+
   .hero-container {
     @apply mx-auto max-w-screen-xl px-10 py-14;
   }

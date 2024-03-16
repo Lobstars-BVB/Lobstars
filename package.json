@@ -6,9 +6,8 @@
     "node": "18"
   },
   "scripts": {
-    "dev": "astro dev",
-    "dev:format": "prettier --write ./src",
-    "dev:check": "prettier --check ./src",
+    "format": "prettier --write ./src",
+    "test": "prettier --check ./src",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",

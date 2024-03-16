@@ -12,27 +12,32 @@ const { id } = Astro.props;
 
 <section
   id={id}
-  class="hero-container flex h-screen flex-col items-center justify-center gap-10 sm:flex-row-reverse"
+  class="hero-container flex min-h-screen flex-col items-center justify-center"
 >
   <a class="anchor" id={id}></a>
-  <div class="w-2/3 sm:w-2/5">
-    <Image
-      src={logo}
-      alt="Lobstars logo"
-      quality={50}
-      widths={[350, 500, 700]}
-      sizes="(max-width: 450px) 350, (max-width: 800) 500px, 700px"
-    />
-  </div>
-  <div class="sm:w-3/5">
-    <div class="content-container">
+  <div
+    class="flex flex-col items-center justify-center gap-10 sm:flex-row-reverse"
+  >
+    <div class="w-2/3 sm:w-2/5">
       <Image
-        src={team}
-        alt="Lobstars Ultimate Frisbee Team"
-        widths={[350, 500, 800]}
-        sizes="(max-width: 450px) 350, (max-width: 800) 500px, 800px"
+        src={logo}
+        alt="Lobstars logo"
         quality={50}
+        widths={[350, 500, 700]}
+        sizes="(max-width: 450px) 350, (max-width: 800) 500px, 700px"
       />
     </div>
+    <div class="sm:w-3/5">
+      <div class="content-container">
+        <Image
+          src={team}
+          alt="Lobstars Ultimate Frisbee Team"
+          widths={[350, 500, 800]}
+          sizes="(max-width: 450px) 350, (max-width: 800) 500px, 800px"
+          quality={50}
+        />
+      </div>
+    </div>
   </div>
+  <h1 class="mt-3">Lobstars Ultimate Frisbee | SV BVB 49 e.V. | Berlin</h1>
 </section>
