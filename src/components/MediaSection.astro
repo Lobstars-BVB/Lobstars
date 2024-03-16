@@ -21,16 +21,25 @@ const imageProps = {
   quality: 30,
 };
 
-const photos = [team3, action1, action3, team5, team4, action4, action2, team2];
+const photos = [
+  { photo: team3, alt: "Team Photo Lobstars" },
+  { photo: action1, alt: "Releasing the Disc" },
+  { photo: action3, alt: "Throwing the disc with a marker" },
+  { photo: team5, alt: "Team Photo in Pink" },
+  { photo: team4, alt: "Team Photo Interflug Pickup Tournament" },
+  { photo: action4, alt: "Throwing Frisbee and Swimming" },
+  { photo: action2, alt: "Pulling the Dics" },
+  { photo: team2, alt: "Celebration Winner of the Spirit Price" },
+];
 ---
 
 <section class="section-container">
   <a class="anchor" id={id}></a>
   <div class="mt-4 grid gap-6 sm:grid-cols-2">
     {
-      photos.map((photo, i) => (
+      photos.map(({ photo, alt }) => (
         <div class="content-container">
-          <Image src={photo} alt={`team-photo-${i + 1}`} {...imageProps} />
+          <Image src={photo} alt={alt} {...imageProps} />
         </div>
       ))
     }
