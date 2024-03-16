@@ -25,4 +25,4 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Check for linting
-        run: yarn dev:check
+        run: yarn test

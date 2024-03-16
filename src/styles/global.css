@@ -21,11 +21,11 @@
   }
 
   h1 {
-    @apply text-base font-bold sm:text-lg
+    @apply text-base font-bold sm:text-lg;
   }
 
   h3 {
-    @apply text-sm sm:text-base font-bold;
+    @apply text-sm font-bold sm:text-base;
   }
 
   p {

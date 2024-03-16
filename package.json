@@ -7,7 +7,7 @@
   },
   "scripts": {
     "format": "prettier --write ./src",
-    "check": "prettier --check ./src",
+    "test": "prettier --check ./src",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
