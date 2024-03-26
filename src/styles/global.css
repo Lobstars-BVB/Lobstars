@@ -16,12 +16,16 @@
     @apply text-main;
   }
 
-  p a {
-    @apply text-secondary;
+  h1 {
+    @apply text-xl font-bold;
   }
 
-  h1 {
+  h1.hero {
     @apply text-base font-bold sm:text-lg;
+  }
+
+  h2 {
+    @apply text-lg font-bold;
   }
 
   h3 {
@@ -42,6 +46,14 @@
 
   .content-container {
     @apply overflow-hidden rounded-sm border border-secondary;
+  }
+
+  .link {
+    @apply text-secondary underline;
+  }
+
+  .footer-link {
+    @apply text-sm font-bold text-secondary hover:underline sm:text-base;
   }
 
   a.anchor {
