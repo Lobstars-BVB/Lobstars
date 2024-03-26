@@ -13,7 +13,20 @@ import "../styles/global.css";
 
 <Layout title="Lobstars Frisbee Berlin">
   <main class="h-full w-full">
-    <HeaderSection id="header" />
+    <HeaderSection
+      id="header"
+      logoHref="#hero"
+      trailingLinks={[
+        {
+          href: "#training",
+          label: "Train With Us",
+        },
+        {
+          href: "#contact",
+          label: "Contact",
+        },
+      ]}
+    />
     <HeroSection id="hero" />
     <AboutSection id="about" />
     <MediaSection id="media" />
