@@ -2,7 +2,7 @@
 interface Props {
   title: string;
   day: string;
-  time: string;
+  time?: string;
   address: string;
   place: string;
   openMapURL: string;
@@ -27,12 +27,16 @@ const {
   <div class="space-y-2 font-medium text-main">
     <div>
       <p><b>When:</b> {day}</p>
-      <p>
-        <a href="#training-note">
-          <b>Time:</b>
-          <span class="underline">{time}</span> *
-        </a>
-      </p>
+      {
+        time && (
+          <p>
+            <a href="#training-note">
+              <b>Time:</b>
+              <span class="underline">{time}</span> *
+            </a>
+          </p>
+        )
+      }
     </div>
     <div>
       <p>{place}</p>
