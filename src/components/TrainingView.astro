@@ -50,14 +50,22 @@ const {
       height="300px"
       title=`Map of ${place} at ${address}`></iframe>
   </div>
-  <div class="link space-y-2 font-medium">
+  <div class="space-y-2 font-medium">
     <p>
-      <a target="_blank" rel="noopener noreferrer" href={openMapURL}
-        >Open Street Map</a
+      <a
+        class="link"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={openMapURL}>Open Street Map</a
       >
     </p>
     <p>
-      <a href={googleMapURL} target="_blank" rel="noopener noreferrer">
+      <a
+        class="link"
+        href={googleMapURL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Google Map
       </a>
     </p>

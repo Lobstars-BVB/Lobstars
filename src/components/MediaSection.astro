@@ -8,7 +8,7 @@ import action2 from "../assets/action-2.jpg";
 import action3 from "../assets/action-3.jpg";
 import action4 from "../assets/action-4.jpg";
 import action1 from "../assets/action-1.jpg";
-import Instagram from "./Instagram.astro";
+import { InstagramEmbed } from "react-social-media-embed";
 
 interface Props {
   id: string;
@@ -46,6 +46,9 @@ const photos = [
     }
   </div>
   <div class="mt-8 flex justify-center">
-    <Instagram />
+    <InstagramEmbed
+      url="https://www.instagram.com/lobstarsfrisbee"
+      width={328}
+    />
   </div>
 </section>
