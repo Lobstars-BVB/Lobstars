@@ -5,11 +5,7 @@ export default function Instagram() {
     <div className="flex justify-center">
       <InstagramEmbed
         url="https://www.instagram.com/p/CzmTVHsrVxd"
-        captioned
-        width="100%"
-        style={{
-          maxWidth: 400,
-        }}
+        width={380}
       />
     </div>
   );
