@@ -1,0 +1,49 @@
+---
+import Layout from "./Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
+const { frontmatter } = Astro.props;
+
+import "../styles/global.css";
+---
+
+<Layout title={frontmatter.title}>
+  <main class="h-full w-full">
+    <HeaderSection
+      id="header"
+      logoHref="#main"
+      trailingLinks={[
+        {
+          href: "/#training",
+          label: "Train With Us",
+        },
+        {
+          href: "/#contact",
+          label: "Contact",
+        },
+        {
+          href: "/blog",
+          label: "Blog",
+        },
+      ]}
+    />
+
+    <section class="section-container">
+      <article>
+        <header>
+          <div>
+            <p class="text-l font-bold text-gray-900">{frontmatter.author}</p>
+            <p class="text-base text-gray-900">
+              <time datetime={frontmatter.pubDate.toString()}
+                >{frontmatter.pubDate.toDateString()}</time
+              >
+            </p>
+          </div>
+          <h1 class="text-3xl">{frontmatter.title}</h1>
+        </header>
+        <slot />
+      </article>
+    </section>
+  </main>
+  <FooterSection />
+</Layout>

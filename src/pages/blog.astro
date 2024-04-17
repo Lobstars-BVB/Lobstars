@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
+
+import "../styles/global.css";
+import BlogPostListItem from "../components/BlogPostListItem.astro";
+
+const blogPosts = await getCollection("blog");
+---
+
+<Layout title="Lobstars Ultimate Frisbee - Berlin">
+  <main class="h-full w-full">
+    <HeaderSection
+      id="header"
+      logoHref="#main"
+      trailingLinks={[
+        {
+          href: "/#training",
+          label: "Train With Us",
+        },
+        {
+          href: "/#contact",
+          label: "Contact",
+        },
+        {
+          href: "/blog",
+          label: "Blog",
+        },
+      ]}
+    />
+    <section class="section-container">
+      <ul>
+        {
+          blogPosts.map((post) => (
+            <BlogPostListItem
+              link={`blog/${post.slug}`}
+              title={post.data.title}
+              author={post.data.author}
+              pubDate={post.data.pubDate}
+              description={post.data.description}
+              tags={post.data.tags}
+            />
+          ))
+        }
+      </ul>
+    </section>
+    <FooterSection />
+  </main>
+</Layout>
