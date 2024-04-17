@@ -35,7 +35,7 @@ const blogPosts = await getCollection("blog");
         {
           blogPosts.map((post) => (
             <BlogPostListItem
-              link={`blog/${post.slug}`}
+              link={`/blog/${post.slug}`}
               title={post.data.title}
               author={post.data.author}
               pubDate={post.data.pubDate}
