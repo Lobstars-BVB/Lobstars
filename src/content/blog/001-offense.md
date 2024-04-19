@@ -2,7 +2,7 @@
 title: "Offense Strategies"
 pubDate: 2024-04-17
 description: "Offense Strategies for Beginners"
-author: "Rufael Negash"
+author: "Dr. R"
 tags: ["offense", "beginner"]
 ---
 
@@ -43,7 +43,7 @@ Put yourself in a position to receive passes that gets the team closer to the en
 
 See what the defence is doing and react accordingly. Zone? Tight person D? Clam? Being poached? Have a strategy for every scenario.
 
-#### Endzone offence
+#### Endzone Offence
 
 **Objective: Score**
 
