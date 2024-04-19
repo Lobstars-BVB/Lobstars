@@ -8,23 +8,24 @@ interface Props {
   link: string;
 }
 
-const { title, pubDate, description, author, tags, link } = Astro.props;
+const { title, pubDate, author, tags, link } = Astro.props;
 ---
 
 <li>
-  <a href={link}>
-    <article>
-      <time datetime={pubDate.toString()}>{pubDate.toDateString()}</time>
+  <article class="flex flex-col gap-y-2">
+    <time datetime={pubDate.toString()}>{pubDate.toDateString()}</time>
+    <a href={link} class="flex flex-col gap-y-2">
       <h3>{title}</h3>
-      <div>{author}</div>
-      <p>{description}</p>
+      <p>Author: {author}</p>
+    </a>
+    <span>
       {
         tags.map((tag) => (
           <a href="#TODO" class="rounded-full bg-gray-50 px-3 py-1.5">
             {tag}
           </a>
-        ))
-      }
+          ))
+        }
+    </span> 
     </article>
-  </a>
 </li>
