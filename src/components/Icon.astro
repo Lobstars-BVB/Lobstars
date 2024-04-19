@@ -1,0 +1,18 @@
+---
+import { Icon as AstroIcon } from "astro-icon/components";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"svg"> {
+  // Find the full list of icons at https://icon-sets.iconify.design/ic/
+  name: string;
+  "is:inline"?: boolean;
+  title?: string;
+  size?: number;
+  width?: number;
+  height?: number;
+}
+
+const { name } = Astro.props;
+---
+
+<AstroIcon name={`ic:${name}`} />
