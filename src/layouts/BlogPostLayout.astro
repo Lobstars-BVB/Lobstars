@@ -42,6 +42,14 @@ import "../styles/global.css";
           <h1 class="text-3xl">{frontmatter.title}</h1>
         </header>
         <slot />
+        <style is:global>
+          h1 {
+            @apply pb-3.5;
+          }
+          h3, p {
+            @apply pb-2.5;
+          }
+        </style>
       </article>
     </section>
   </main>

@@ -36,6 +36,13 @@
     @apply text-sm sm:text-base;
   }
 
+  a {
+    @apply underline;
+  }
+  a:hover {
+    @apply no-underline;
+  }
+
   .hero-container {
     @apply mx-auto max-w-screen-xl px-10 py-14;
   }
