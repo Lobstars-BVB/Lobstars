@@ -43,6 +43,10 @@
     @apply no-underline;
   }
 
+  a.anchor {
+    @apply invisible relative -top-14 block;
+  }
+  
   .hero-container {
     @apply mx-auto max-w-screen-xl px-10 py-14;
   }
@@ -61,9 +65,5 @@
 
   .footer-link {
     @apply text-sm font-bold text-secondary hover:underline sm:text-base;
-  }
-
-  a.anchor {
-    @apply invisible relative -top-14 block;
   }
 }
