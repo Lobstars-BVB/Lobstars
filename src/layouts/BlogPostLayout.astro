@@ -11,15 +11,11 @@ import "../styles/global.css";
   <main class="h-full w-full">
     <HeaderSection
       id="header"
-      logoHref="#main"
+      logoHref="/"
       trailingLinks={[
         {
-          href: "/#training",
-          label: "Train With Us",
-        },
-        {
-          href: "/#contact",
-          label: "Contact",
+          href: "/",
+          label: "Home",
         },
         {
           href: "/blog",
@@ -32,6 +28,9 @@ import "../styles/global.css";
       <article class="blog">
         <header>
           <div>
+            <p class="mb-4">
+              <a href="/blog" class="link">Go Back</a>
+            </p>
             <p class="text-l font-bold text-gray-900">{frontmatter.author}</p>
             <p class="text-base text-gray-900">
               <time datetime={frontmatter.pubDate.toString()}

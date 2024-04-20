@@ -36,13 +36,6 @@
     @apply text-sm sm:text-base;
   }
 
-  a {
-    @apply underline;
-  }
-  a:hover {
-    @apply no-underline;
-  }
-
   a.anchor {
     @apply invisible relative -top-14 block;
   }
@@ -63,7 +56,7 @@
     @apply text-secondary underline;
   }
 
-  .footer-link {
-    @apply text-sm font-bold text-secondary hover:underline sm:text-base;
+  .link:hover {
+    @apply text-secondary-light;
   }
 }
