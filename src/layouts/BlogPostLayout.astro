@@ -29,7 +29,7 @@ import "../styles/global.css";
     />
 
     <section class="section-container">
-      <article>
+      <article class="blog">
         <header>
           <div>
             <p class="text-l font-bold text-gray-900">{frontmatter.author}</p>
@@ -42,6 +42,14 @@ import "../styles/global.css";
           <h1 class="text-3xl">{frontmatter.title}</h1>
         </header>
         <slot />
+        <style is:global>
+          .blog > header {
+            @apply pb-3.5;
+          }
+          .blog > h3, .blog > p {
+            @apply pb-2.5;
+          }
+        </style>
       </article>
     </section>
   </main>

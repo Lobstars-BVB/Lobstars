@@ -2,11 +2,9 @@
 title: "Poaching"
 pubDate: 2024-04-18
 description: "Poaching Examples"
-author: "Rufael Negash"
+author: "Dr. R"
 tags: ["poaching"]
 ---
-
-Hey team, I wanted to shed light on a concept thats been floating around lately - Poaching
 
 Here is a great video going into the meaning of the word and also showing some great poaching examples: https://www.youtube.com/watch?v=b7ulvRLCgT4
 
