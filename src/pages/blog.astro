@@ -24,7 +24,7 @@ const blogPosts = await getCollection("blog");
     />
     <section class="section-container flex w-full grow flex-col gap-y-6">
       <h1>Blog posts</h1>
-      <ul class="flex flex-col gap-y-6">
+      <ul class="flex flex-col gap-y-10">
         {
           blogPosts.map((post) => (
             <BlogPostListItem

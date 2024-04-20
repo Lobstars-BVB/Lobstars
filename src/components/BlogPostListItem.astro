@@ -1,4 +1,6 @@
 ---
+import Icon from "./Icon.astro";
+
 interface Props {
   title: string;
   pubDate: Date;
@@ -13,19 +15,26 @@ const { title, pubDate, author, tags, link } = Astro.props;
 
 <li>
   <article class="flex flex-col gap-y-2">
-    <time datetime={pubDate.toString()}>{pubDate.toDateString()}</time>
-    <a href={link} class="flex flex-col gap-y-2">
-      <h3>{title}</h3>
+    <p>
+      Date:
+      <time datetime={pubDate.toString()}>{pubDate.toDateString()}</time>
+    </p>
+    <div class="flex flex-col gap-y-2">
+      <h3 class="link">
+        <a href={link}>{title}</a>
+      </h3>
       <p>Author: {author}</p>
-    </a>
-    <span>
+    </div>
+    <div class="flex gap-1">
       {
         tags.map((tag) => (
-          <a href="#TODO" class="rounded-full bg-gray-50 px-3 py-1.5">
-            {tag}
-          </a>
+          <p>
+            <a href="#TODO" class="rounded-full bg-gray-50 px-3 py-1.5">
+              {tag}
+            </a>
+          </p>
         ))
       }
-    </span>
+    </div>
   </article>
 </li>
