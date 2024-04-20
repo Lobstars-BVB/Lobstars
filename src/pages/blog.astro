@@ -11,7 +11,7 @@ const blogPosts = await getCollection("blog");
 ---
 
 <Layout title="Lobstars Ultimate Frisbee - Berlin">
-  <main class="h-full w-full">
+  <main class="flex min-h-screen flex-col">
     <HeaderSection
       id="header"
       logoHref="/#main"
@@ -22,7 +22,7 @@ const blogPosts = await getCollection("blog");
         },
       ]}
     />
-    <section class="section-container flex flex-col gap-y-6">
+    <section class="section-container flex w-full grow flex-col gap-y-6">
       <h1>Blog posts</h1>
       <ul class="flex flex-col gap-y-6">
         {
