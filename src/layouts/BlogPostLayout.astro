@@ -5,16 +5,17 @@ import FooterSection from "../components/FooterSection.astro";
 const { frontmatter } = Astro.props;
 
 import "../styles/global.css";
+import Icon from "../components/Icon.astro";
 ---
 
 <Layout title={frontmatter.title}>
   <main class="h-full w-full">
     <HeaderSection
       id="header"
-      logoHref="/#main"
+      logoHref="/"
       trailingLinks={[
         {
-          href: "/#main",
+          href: "/",
           label: "Home",
         },
         {
@@ -28,6 +29,9 @@ import "../styles/global.css";
       <article class="blog">
         <header>
           <div>
+            <p class="mb-4">
+              <a href="/blog" class="link"> Go Back</a>
+            </p>
             <p class="text-l font-bold text-gray-900">{frontmatter.author}</p>
             <p class="text-base text-gray-900">
               <time datetime={frontmatter.pubDate.toString()}
