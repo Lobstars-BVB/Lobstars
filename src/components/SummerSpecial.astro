@@ -1,0 +1,38 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section id={id} class="section-container">
+  <div class="grid w-full gap-4 bg-orange-200 p-8">
+    <h3 class="text-center">🏖️☀️🌟THIS SUMMER🌟☀️🏖️</h3>
+    <p class="text-center">
+      Every Sunday in August, we are hosting introduction to Ultimate Frisbee
+      sessions!
+      <ul class="text-center">
+        <li>Time: 13.00-14.30</li>
+        <li>
+          Location: <a
+            href="https://maps.app.goo.gl/vPu6uVFTxDMCMFas9"
+            target="_blank"
+            class="font-bold"
+            >Sportwiese im Friedrich-Ludwig-Jahn Sportpark
+          </a>
+        </li>
+        <li>
+          Updates: Instagram <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.instagram.com/lobstarsfrisbee"
+            class="font-bold"
+          >
+            @lobstarsfrisbee
+          </a>
+        </li>
+      </ul>
+    </p>
+  </div>
+</section>
