@@ -32,7 +32,8 @@
     @apply text-sm font-bold sm:text-base;
   }
 
-  p {
+  p,
+  li {
     @apply text-sm sm:text-base;
   }
 
