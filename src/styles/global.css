@@ -60,4 +60,8 @@
   a.anchor {
     @apply invisible relative -top-14 block;
   }
+
+  .yt-embed {
+    @apply aspect-video w-full;
+  }
 }
