@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import TrainingsSection from "../components/TrainingsSection.astro";
 import ContactSection from "../components/ContactSection.astro";
 import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
@@ -10,7 +9,7 @@ import "../styles/global.css";
 import TrainingView from "../components/TrainingView.astro";
 ---
 
-<Layout title="Lobstars Ultimate Frisbee - Berlin">
+<Layout title="What is Ultimate Frisbee? - Lobstars Berlin">
   <main class="h-full w-full">
     <HeaderSection id="header" />
 
@@ -18,8 +17,7 @@ import TrainingView from "../components/TrainingView.astro";
       <h1>What is Ultimate Frisbee?</h1>
 
       <iframe
-        width="560"
-        height="315"
+        class="yt-embed"
         src="https://www.youtube.com/embed/hXArTyZcjPA?si=07KMHaIEVYeDnNCD"
         title="YouTube video player"
         frameborder="0"
@@ -52,7 +50,11 @@ import TrainingView from "../components/TrainingView.astro";
         and the basic joy of play.
       </p>
 
-      <p>Source: <a href="https://wfdf.sport/disciplines/ultimate/">WFDF</a></p>
+      <p>
+        Source: <a
+          target="_blank"
+          href="https://wfdf.sport/disciplines/ultimate/">WFDF</a>
+      </p>
     </section>
 
     <SummerSpecial id="summer-special" />
