@@ -37,8 +37,14 @@
     @apply text-sm sm:text-base;
   }
 
+
+  .button {
+    @apply text-white bg-secondary rounded-lg px-4 py-2 text-sm min-w-32 text-center;
+    @apply hover:bg-secondary-light;
+  }
+
   .hero-container {
-    @apply mx-auto max-w-screen-xl px-10 py-14;
+    @apply mx-auto max-w-screen-xl px-10 py-24;
   }
 
   .section-container {
