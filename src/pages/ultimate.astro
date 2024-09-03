@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import ContactSection from "../components/ContactSection.astro";
 import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
-import SummerSpecial from "../components/SummerSpecial.astro";
 
 import "../styles/global.css";
 import TrainingView from "../components/TrainingView.astro";
@@ -58,13 +57,12 @@ import TrainingView from "../components/TrainingView.astro";
       </p>
     </section>
 
-    <SummerSpecial id="summer-special" />
-    <section class="section-container">
+    <section class="section-container" id="open-training-session">
       <div class="flex flex-col gap-10 lg:flex-row lg:gap-20">
         <div class="max-w-2xl lg:w-1/2">
           <TrainingView
             title="Open Beginner Friendly Trainings"
-            day="First Sunday of the month (Except: August 2024 EVERY sunday)"
+            day="First Sunday of every month"
             time="13:00"
             place="Sportsfield (Grass) next to stadium, Mauer Park"
             address="Friedrich-Ludwig-Jahn-Sportpark, Cantianstraße, Berlin"
