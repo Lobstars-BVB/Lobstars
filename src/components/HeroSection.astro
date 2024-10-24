@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/logo.png";
+import logoWithClaw from "../assets/logo.png";
 import team from "../assets/team.jpg";
 import ContentContainer from "./ContentContainer.astro";
 
@@ -17,11 +17,11 @@ const { id } = Astro.props;
 >
   <a class="anchor" id={id}></a>
   <div
-    class="flex flex-col items-center justify-center gap-10 sm:flex-row-reverse"
+    class="flex flex-col items-center justify-center gap-10 lg:flex-row"
   >
-    <div class="w-2/3 sm:w-2/5">
+    <div class="lg:w-3/5">
       <Image
-        src={logo}
+        src={logoWithClaw}
         alt="Lobstars logo"
         quality={50}
         widths={[350, 500, 700]}
@@ -29,7 +29,7 @@ const { id } = Astro.props;
         sizes="(max-width: 450px) 350, (max-width: 800) 500px, 700px"
       />
     </div>
-    <div class="sm:w-3/5">
+    <div class="lg:w-3/5">
       <ContentContainer>
         <Image
           src={team}
@@ -44,7 +44,7 @@ const { id } = Astro.props;
   </div>
   <div class="flex flex-col gap-6">
     <div class="text-center">
-      <h1 class="mt-3 text-base font-bold sm:text-lg">
+      <h1 class="mt-3 font-bold">
         Lobstars Ultimate Frisbee
       </h1>
       <h3>SV BVB 49 e.V. | Berlin Lichtenberg</h3>
