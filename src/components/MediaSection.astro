@@ -9,6 +9,8 @@ import action3 from "../assets/action-3.jpg";
 import action4 from "../assets/action-4.jpg";
 import action1 from "../assets/action-1.jpg";
 import Instagram from "./Instagram";
+import SectionContainer from "./SectionContainer.astro";
+import ContentContainer from "./ContentContainer.astro";
 
 interface Props {
   id: string;
@@ -34,14 +36,14 @@ const photos = [
 ];
 ---
 
-<section class="section-container">
+<SectionContainer id={id}>
   <a class="anchor" id={id}></a>
   <div class="mt-4 grid gap-6 sm:grid-cols-2">
     {
       photos.map(({ photo, alt }) => (
-        <div class="content-container">
+        <ContentContainer>
           <Image src={photo} alt={alt} {...imageProps} />
-        </div>
+        </ContentContainer>
       ))
     }
   </div>

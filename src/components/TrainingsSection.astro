@@ -1,4 +1,5 @@
 ---
+import SectionContainer from "./SectionContainer.astro";
 import TrainingView from "./TrainingView.astro";
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<section id={id} class="section-container">
+<SectionContainer id={id}>
   <a class="anchor" id={id}></a>
   <div class="flex flex-col gap-10 lg:flex-row lg:gap-20">
     <div class="max-w-2xl lg:w-1/2">
@@ -36,9 +37,9 @@ const { id } = Astro.props;
       />
     </div>
   </div>
-  <p class="mt-10 text-center text-sm text-main">
+  <p class="text-main mt-10 text-center text-sm">
     <a class="anchor" id="training-note"></a>
     <span class="font-bold">* Note:</span> Training times are subject to change.
     Send us a message to confirm the training times before you come.
   </p>
-</section>
+</SectionContainer>

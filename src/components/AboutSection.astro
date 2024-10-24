@@ -1,4 +1,6 @@
 ---
+import SectionContainer from "./SectionContainer.astro";
+
 interface Props {
   id: string;
 }
@@ -7,10 +9,12 @@ const { id } = Astro.props;
 ---
 
 <div class="bg-dark-purple-900">
-  <section id={id} class="section-container">
+  <SectionContainer id={id}>
     <a class="anchor" id={id}></a>
     <div class="mx-auto max-w-4xl text-center">
-      <h3 class="text-neon-pink-600">Many moons ago… in the bustling city of&nbsp;Berlin…</h3>
+      <h3 class="text-neon-pink-600">
+        Many moons ago… in the bustling city of&nbsp;Berlin…
+      </h3>
       <p class="mt-2 text-white">
         A group of ultimate frisbee fans joined together to toss discs and play
         pickup games in Treptower Park casually. Little did they know what they
@@ -26,5 +30,5 @@ const { id } = Astro.props;
         We looking forward to meeting you!
       </p>
     </div>
-  </section>
+  </SectionContainer>
 </div>

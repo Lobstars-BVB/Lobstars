@@ -4,6 +4,7 @@ import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
 
 import "../styles/global.css";
+import SectionContainer from "../components/SectionContainer.astro";
 ---
 
 <meta name="robots" content="noindex" />
@@ -11,7 +12,7 @@ import "../styles/global.css";
 <Layout title="Impressum | Lobstars Ultimate Frisbee - Berlin">
   <main class="h-full w-full">
     <HeaderSection id="header" />
-    <section class="section-container">
+    <SectionContainer>
       <h1 class="my-6">Inhaltlich verantwortlich, gemäß § 5 TMG:</h1>
       <p>Sportverein Berliner Verkehrs-Betriebe 49 e.V</p>
       <p>Siegfriedstraße 71</p>
@@ -77,7 +78,7 @@ import "../styles/global.css";
           >eRecht24 Disclaimer</a
         >
       </p>
-    </section>
+    </SectionContainer>
     <FooterSection />
   </main>
 </Layout>

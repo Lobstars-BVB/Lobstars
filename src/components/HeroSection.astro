@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import logo from "../assets/logo.png";
 import team from "../assets/team.jpg";
+import ContentContainer from "./ContentContainer.astro";
 
 interface Props {
   id: string;
@@ -12,7 +13,7 @@ const { id } = Astro.props;
 
 <section
   id={id}
-  class="hero-container flex min-h-screen flex-col items-center justify-center"
+  class="mx-auto flex min-h-screen max-w-screen-xl flex-col items-center justify-center px-10 py-24"
 >
   <a class="anchor" id={id}></a>
   <div
@@ -29,7 +30,7 @@ const { id } = Astro.props;
       />
     </div>
     <div class="sm:w-3/5">
-      <div class="content-container">
+      <ContentContainer>
         <Image
           src={team}
           alt="Lobstars Ultimate Frisbee Teamphoto in Lichtenberg"
@@ -38,12 +39,14 @@ const { id } = Astro.props;
           loading="eager"
           quality={50}
         />
-      </div>
+      </ContentContainer>
     </div>
   </div>
   <div class="flex flex-col gap-6">
     <div class="text-center">
-      <h1 class="hero mt-3">Lobstars Ultimate Frisbee</h1>
+      <h1 class="mt-3 text-base font-bold sm:text-lg">
+        Lobstars Ultimate Frisbee
+      </h1>
       <h3>SV BVB 49 e.V. | Berlin Lichtenberg</h3>
     </div>
     <div class="flex justify-center gap-4">
