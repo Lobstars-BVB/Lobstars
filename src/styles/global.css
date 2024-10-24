@@ -37,7 +37,7 @@
   }
 
   button {
-    @apply bg-neon-pink-900 text-neon-pink-600 min-w-32 rounded-lg px-4 py-2 text-center text-sm;
+    @apply min-w-32 rounded-lg bg-neon-pink-900 px-4 py-2 text-center text-sm text-neon-pink-600;
     @apply hover:opacity-80;
   }
 
