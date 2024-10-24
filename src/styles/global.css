@@ -4,24 +4,23 @@
 
 @layer components {
   html {
-    @apply bg-background;
+    @apply bg-neon-pink-600;
     scroll-behavior: smooth;
   }
 
   h1,
-  h2,
+  h2 {
+    @apply text-neon-pink-900;
+  }
+
   h3,
   h4,
   p {
-    @apply text-main;
+    @apply text-dark-purple-900;
   }
 
   h1 {
     @apply text-xl font-bold;
-  }
-
-  h1.hero {
-    @apply text-base font-bold sm:text-lg;
   }
 
   h2 {
@@ -37,36 +36,12 @@
     @apply text-sm sm:text-base;
   }
 
-  .button {
-    @apply min-w-32 rounded-lg bg-secondary px-4 py-2 text-center text-sm text-white;
-    @apply hover:bg-secondary-light;
-  }
-
-  .hero-container {
-    @apply mx-auto max-w-screen-xl px-10 py-24;
-  }
-
-  .section-container {
-    @apply mx-auto max-w-screen-xl px-10 py-20;
-  }
-
-  .content-container {
-    @apply overflow-hidden rounded-sm border border-secondary;
-  }
-
-  .link {
-    @apply text-secondary underline;
-  }
-
-  .footer-link {
-    @apply text-sm font-bold text-secondary hover:underline sm:text-base;
+  button {
+    @apply min-w-32 rounded-lg bg-neon-pink-900 px-4 py-2 text-center text-sm text-neon-pink-600;
+    @apply hover:opacity-80;
   }
 
   a.anchor {
     @apply invisible relative -top-14 block;
-  }
-
-  .yt-embed {
-    @apply aspect-video w-full;
   }
 }

@@ -4,11 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        main: "#141204",
-        secondary: "#933f3f",
-        "secondary-light": "#a86565",
-        background: "#eddccc",
-        "background-secondary": "#f4e3d7",
+        "dark-purple": { 900: "#1e0629" },
+        "neon-pink": { 600: "#f9e0e3", 900: "#ff05a2" },
+        "neon-blue": { 900: "#04D9FF" },
       },
       fontFamily: {
         headline: ["Roboto", "sans-serif"],
