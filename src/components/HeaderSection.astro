@@ -20,8 +20,7 @@ const trailingLinks = [
 ];
 ---
 
-<header id={id} class="fixed left-0 right-0 z-50 bg-background">
-  <div class="border-b border-secondary"></div>
+<header id={id} class="bg-neon-pink-600 fixed left-0 right-0 z-50">
   <nav
     class="mx-auto flex h-12 max-w-screen-xl items-center justify-between px-10 py-2"
   >
@@ -38,7 +37,7 @@ const trailingLinks = [
     </a>
     {
       trailingLinks.length > 0 && (
-        <div class="flex gap-4 text-sm font-bold text-secondary sm:text-base">
+        <div class="text-neon-pink-900 flex gap-4 text-sm font-bold sm:text-base">
           {trailingLinks.map(({ label, href }) => (
             <a href={href}>{label}</a>
           ))}
@@ -46,5 +45,5 @@ const trailingLinks = [
       )
     }
   </nav>
-  <div class="border-b border-secondary"></div>
+  <div class="border-neon-pink-900 border-2 border-b"></div>
 </header>
