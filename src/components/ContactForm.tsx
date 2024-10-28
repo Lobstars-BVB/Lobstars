@@ -53,7 +53,7 @@ export default function ContactForm() {
           <p>Something went wrong.</p>
           <p>
             Send us an email at{" "}
-            <span className="font-bold text-neon-pink-900">
+            <span className="font-bold text-neon-pink-dark">
               lobstars.bvb@<span className="display: none;">ignore-</span>
               gmail.com
             </span>
@@ -99,7 +99,7 @@ export default function ContactForm() {
 
           <button
             type="submit"
-            className="rounded bg-neon-pink-900 px-4 py-2 font-bold text-neon-pink-600 hover:opacity-80"
+            className="rounded bg-neon-pink-dark px-4 py-2 font-bold text-neon-pink-light hover:opacity-80"
             disabled={state === State.Sending}
           >
             {state === State.Sending ? "Sending..." : "Submit"}

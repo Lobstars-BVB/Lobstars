@@ -4,19 +4,19 @@
 
 @layer components {
   html {
-    @apply bg-neon-pink-600;
+    @apply bg-neon-pink-light;
     scroll-behavior: smooth;
   }
 
   h1,
   h2 {
-    @apply text-neon-pink-900;
+    @apply text-neon-pink-dark;
   }
 
   h3,
   h4,
   p {
-    @apply text-dark-purple-900;
+    @apply text-dark-purple;
   }
 
   h1 {
@@ -37,7 +37,7 @@
   }
 
   button {
-    @apply min-w-32 rounded-lg bg-neon-pink-900 px-4 py-2 text-center text-sm text-neon-pink-600;
+    @apply min-w-32 rounded-lg bg-neon-pink-dark px-4 py-2 text-center text-sm text-neon-pink-light;
     @apply hover:opacity-80;
   }
 

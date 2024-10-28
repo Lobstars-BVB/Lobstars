@@ -4,9 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        "dark-purple": { 900: "#1e0629" },
-        "neon-pink": { 600: "#f9e0e3", 900: "#ff05a2" },
-        "neon-blue": { 900: "#04D9FF" },
+        "dark-purple": "#1e0629",
+        "neon-pink": { light: "#FFEBF5", dark: "#FF47A9" },
       },
       fontFamily: {
         headline: ["Roboto", "sans-serif"],
