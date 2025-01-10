@@ -6,7 +6,7 @@ import { AnswerExplanation } from "./AnswerExplanation.tsx";
 import { AnswerOption } from "./AnswerOption.tsx";
 import { QuizProgress } from "./QuizProgress.tsx";
 
-// non-negative values correspond to question index
+// non-negative values correspond to question indices
 const QUIZ_OPENING_STATE = -1;
 const QUIZ_CLOSING_STATE = -2;
 
@@ -97,13 +97,7 @@ const QuizApp: React.FC = () => {
       </div>
       {isSubmitted ? (
         <div>
-          <p>
-            {selectedAnswer === currentQuestion.correctIndex
-              ? "Correct!"
-              : "Incorrect!"}
-          </p>
-
-          <AnswerExplanation quizQuestion={currentQuestion} />
+          <AnswerExplanation quizQuestion={currentQuestion} isCorrect={selectedAnswer === currentQuestion.correctIndex} />
 
           <button className={"question-change-btn"} onClick={nextQuestion}>
             {currentQuestionIndex < questions.length - 1
@@ -112,13 +106,18 @@ const QuizApp: React.FC = () => {
           </button>
         </div>
       ) : (
-        <button
-          className={"submit-btn"}
-          onClick={submitAnswer}
-          disabled={selectedAnswer === null}
-        >
-          Submit
-        </button>
+          <div>
+            <div className="explanation"></div>
+
+            <button
+                className={"submit-btn"}
+                onClick={submitAnswer}
+                disabled={selectedAnswer === null}
+            >
+              Submit
+            </button>
+          </div>
+
       )}
     </div>
   );

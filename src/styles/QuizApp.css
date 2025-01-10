@@ -1,6 +1,6 @@
 .quiz-container {
   position: relative;
-  max-width: 600px;
+  max-width: 650px;
   margin: 50px auto;
   padding: 20px;
   border: 2px solid #ddd;
@@ -13,6 +13,7 @@
 
 .quiz-container h2 {
   margin-bottom: 20px;
+  min-height: 60px;
 }
 
 .quiz-container button {
@@ -55,6 +56,12 @@ a {
   @apply text-neon-pink-dark;
 }
 
+.explanation {
+  min-height: 120px; /* Reserve space for the text */
+  margin-bottom: 10px;
+  background-color: #fff; /* White background for explanation */
+}
+
 p#score {
   @apply text-xl font-semibold text-neon-pink-dark;
 }
@@ -73,5 +80,5 @@ progress::-webkit-progress-value {
   border-radius: 7px;
 }
 progress::-moz-progress-bar {
-  /* style rules */
+  @apply bg-neon-pink-dark;
 }
