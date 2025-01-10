@@ -4,7 +4,7 @@ interface Reference {
   locator: string;
 }
 
-export interface Question {
+export interface QuizQuestion {
   question: string;
   answers: string[];
   correctIndex: number;
@@ -12,7 +12,7 @@ export interface Question {
   reference: Reference;
 }
 
-const questions: Question[] = [
+const questions: QuizQuestion[] = [
   {
     question:
       "What is the maximum number of players allowed on the field per team during a point in Ultimate Frisbee?",
@@ -325,13 +325,13 @@ function shuffleArray<Type>(array: Type[]): Type[] {
 }
 
 function getRandomQuestions(
-  questionArray: Question[],
+  questionArray: QuizQuestion[],
   count: number,
-): Question[] {
+): QuizQuestion[] {
   let shuffledQuestions = shuffleArray(questionArray); // since the result is sliced, we could stop the procedure when reaching count
   return shuffledQuestions.slice(0, count);
 }
 
-export function retrieveQuizQuestions(): Question[] {
+export function retrieveQuizQuestions(): QuizQuestion[] {
   return getRandomQuestions(questions, 10);
 }

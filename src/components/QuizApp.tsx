@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../styles/QuizApp.css";
-import { type Question, retrieveQuizQuestions } from "../data/questions.ts";
+import { type QuizQuestion, retrieveQuizQuestions } from "../data/questions.ts";
 import { QuizScoreDisplay } from "./QuizScoreDisplay.tsx";
+import {AnswerExplanation} from "./AnswerExplanation.tsx";
 
 // non-negative values correspond to question index
 const QUIZ_OPENING_STATE = -1;
@@ -13,7 +14,7 @@ const QuizApp: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
-  const [questions, setQuestion] = useState<Question[]>([]);
+  const [questions, setQuestion] = useState<QuizQuestion[]>([]);
 
   const startQuiz = () => {
     setCurrentQuestionIndex(0);
@@ -111,21 +112,9 @@ ${!isSubmitted && index === selectedAnswer ? "selected" : ""}\
               ? "Correct!"
               : "Incorrect!"}
           </p>
-          <p>{currentQuestion.explanation}</p>
-          <p>
-            <small>
-              Reference:{" "}
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={currentQuestion.reference.link}
-              >
-                {" "}
-                {currentQuestion.reference.sourceName}
-              </a>{" "}
-              ({currentQuestion.reference.locator})
-            </small>
-          </p>
+
+          <AnswerExplanation quizQuestion={currentQuestion} />
+
           <button className={"question-change-btn"} onClick={nextQuestion}>
             {currentQuestionIndex < questions.length - 1
               ? "Next Question"
