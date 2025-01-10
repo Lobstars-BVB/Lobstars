@@ -66,7 +66,15 @@ const QuizApp: React.FC = () => {
         <h2 className="text-4xl">Quiz Completed!</h2>
         <QuizScoreDisplay score={score} maximumScore={questions.length} />
         <QuizStateChangeButton text={"Restart Quiz"} onClick={startQuiz} />
-        <a target="_blank" rel="noopener noreferrer" href="https://lobstars-frisbee.club/" className="absolute bottom-1 right-2 font-bold">Feedback</a> {/* TODO: Add link to feedback form */}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://lobstars-frisbee.club/"
+          className="absolute bottom-1 right-2 font-bold"
+        >
+          Feedback
+        </a>{" "}
+        {/* TODO: Add link to feedback form */}
       </div>
     );
   }

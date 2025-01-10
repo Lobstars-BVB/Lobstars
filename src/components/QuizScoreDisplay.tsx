@@ -3,7 +3,7 @@ import React from "react";
 type QuizScore = {
   score: number;
   maximumScore: number;
-}
+};
 
 const closingStatement = (score: number): string => {
   if (score <= 2)
