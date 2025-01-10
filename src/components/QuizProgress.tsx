@@ -3,7 +3,7 @@ import React from "react";
 type ProgressProps = {
     currentValue: number;
     maxValue: number;
-};
+}
 
 export const QuizProgress: React.FC<ProgressProps> = ({ currentValue, maxValue }: ProgressProps) => {
     return (

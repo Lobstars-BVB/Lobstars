@@ -1,13 +1,13 @@
 import React from "react";
 
 type Props = {
-    answer: string,
-    index: number,
-    isCorrect: boolean,
-    isSelected: boolean,
-    isSubmitted: boolean,
-    stateHook: (value: React.SetStateAction<number | null>) => void,
-};
+    answer: string;
+    index: number;
+    isCorrect: boolean;
+    isSelected: boolean;
+    isSubmitted: boolean;
+    stateHook: (value: React.SetStateAction<number | null>) => void;
+}
 
 export const AnswerOption: React.FC<Props> = ({ answer, index, isCorrect, isSelected, isSubmitted, stateHook }: Props) => {
 
