@@ -8,30 +8,26 @@ interface QuizQuestionProps {
 
 export const AnswerExplanation: React.FC<QuizQuestionProps> = ({
   quizQuestion,
-    isCorrect,
+  isCorrect,
 }: QuizQuestionProps) => {
   return (
-      <div className="explanation">
-          <p>
-              {isCorrect
-                  ? "Correct!"
-                  : "Incorrect!"}
-          </p>
-          <p>{quizQuestion.explanation}</p>
-          <p>
-              <small>
-                  Reference:{" "}
-                  <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={quizQuestion.reference.link}
-                  >
-                      {" "}
-                      {quizQuestion.reference.sourceName}
-                  </a>{" "}
-                  ({quizQuestion.reference.locator})
-              </small>
-          </p>
-      </div>
+    <div className="explanation">
+      <p>{isCorrect ? "Correct!" : "Incorrect!"}</p>
+      <p>{quizQuestion.explanation}</p>
+      <p>
+        <small>
+          Reference:{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={quizQuestion.reference.link}
+          >
+            {" "}
+            {quizQuestion.reference.sourceName}
+          </a>{" "}
+          ({quizQuestion.reference.locator})
+        </small>
+      </p>
+    </div>
   );
 };

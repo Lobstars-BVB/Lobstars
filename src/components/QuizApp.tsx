@@ -5,7 +5,7 @@ import { QuizScoreDisplay } from "./QuizScoreDisplay.tsx";
 import { AnswerExplanation } from "./AnswerExplanation.tsx";
 import { AnswerOption } from "./AnswerOption.tsx";
 import { QuizProgress } from "./QuizProgress.tsx";
-import {QuizStateChangeButton} from "./QuizStateChangeButton.tsx";
+import { QuizStateChangeButton } from "./QuizStateChangeButton.tsx";
 
 // non-negative values correspond to question indices
 const QUIZ_OPENING_STATE = -1;
@@ -96,19 +96,30 @@ const QuizApp: React.FC = () => {
       </div>
       {isSubmitted ? (
         <div className="flex flex-col items-center">
-          <AnswerExplanation quizQuestion={currentQuestion} isCorrect={selectedAnswer === currentQuestion.correctIndex} />
+          <AnswerExplanation
+            quizQuestion={currentQuestion}
+            isCorrect={selectedAnswer === currentQuestion.correctIndex}
+          />
 
-          <QuizStateChangeButton text={currentQuestionIndex < questions.length - 1
-              ? "Next Question"
-              : "Finish Quiz"} onClick={nextQuestion} />
+          <QuizStateChangeButton
+            text={
+              currentQuestionIndex < questions.length - 1
+                ? "Next Question"
+                : "Finish Quiz"
+            }
+            onClick={nextQuestion}
+          />
         </div>
       ) : (
-          <div className="flex flex-col items-center">
-            <div className="explanation"></div>
+        <div className="flex flex-col items-center">
+          <div className="explanation"></div>
 
-            <QuizStateChangeButton text={"Submit"} onClick={submitAnswer} disabled={selectedAnswer === null} />
-          </div>
-
+          <QuizStateChangeButton
+            text={"Submit"}
+            onClick={submitAnswer}
+            disabled={selectedAnswer === null}
+          />
+        </div>
       )}
     </div>
   );
