@@ -56,13 +56,13 @@ a {
 }
 
 p#score {
-  @apply font-semibold text-xl text-neon-pink-dark;
+  @apply text-xl font-semibold text-neon-pink-dark;
 }
 
 progress {
   border-radius: 7px;
   height: 8px;
-  box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 progress::-webkit-progress-bar {
   @apply bg-gray-300;
