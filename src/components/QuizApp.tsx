@@ -61,7 +61,7 @@ const QuizApp: React.FC = () => {
       <div className="quiz-container">
         <h2 className="text-4xl">Quiz Completed!</h2>
 
-        <QuizScoreDisplay score={score} totalScore={questions.length} />
+        <QuizScoreDisplay score={score} maximumScore={questions.length} />
 
         <button onClick={startQuiz}>Restart Quiz</button>
       </div>

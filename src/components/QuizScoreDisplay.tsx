@@ -1,8 +1,8 @@
 import React from "react";
 
-type Props = {
+type QuizScore = {
   score: number;
-  totalScore: number;
+  maximumScore: number;
 };
 
 const closingStatement = (score: number): string => {
@@ -21,14 +21,14 @@ const closingStatement = (score: number): string => {
   return "Outstanding, All-Star Lobstar! You’ve nailed it like a perfect hammer throw. Your knowledge is championship material—just like our Lobstars spirit on the field.";
 };
 
-export const QuizScoreDisplay: React.FC<Props> = ({
+export const QuizScoreDisplay: React.FC<QuizScore> = ({
   score,
-  totalScore,
-}: Props) => {
+  maximumScore,
+}: QuizScore) => {
   return (
     <>
       <p className="text-xl font-semibold text-neon-pink-dark">
-        Your score: {score} / {totalScore}
+        Your score: {score} / {maximumScore}
       </p>
       <p>{closingStatement(score)}</p>
     </>
