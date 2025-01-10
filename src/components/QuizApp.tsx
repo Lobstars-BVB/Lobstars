@@ -4,6 +4,7 @@ import { type QuizQuestion, retrieveQuizQuestions } from "../data/questions.ts";
 import { QuizScoreDisplay } from "./QuizScoreDisplay.tsx";
 import { AnswerExplanation } from "./AnswerExplanation.tsx";
 import { AnswerOption } from "./AnswerOption.tsx";
+import {QuizProgress} from "./QuizProgress.tsx";
 
 // non-negative values correspond to question index
 const QUIZ_OPENING_STATE = -1;
@@ -75,18 +76,7 @@ const QuizApp: React.FC = () => {
   return (
     <div className="quiz-container">
       <div className="pb-4" id="container-for-progress-bar">
-        <div className="absolute right-3 top-1" id="progress-bar">
-          <label className="text-sm" htmlFor="quiz-progress">
-            Quiz progress:{" "}
-          </label>
-          <progress
-            id="quiz-progress"
-            max={questions.length}
-            value={currentQuestionIndex}
-          >
-            {" "}
-          </progress>
-        </div>
+        <QuizProgress currentValue={currentQuestionIndex} maxValue={questions.length} />
       </div>
 
       <h2>{currentQuestion.question}</h2>

@@ -3,7 +3,7 @@ import type {QuizQuestion} from "../data/questions.ts";
 
 interface QuizQuestionProps {
     quizQuestion: QuizQuestion;
-}
+};
 
 export const AnswerExplanation: React.FC<QuizQuestionProps> = ({ quizQuestion }: QuizQuestionProps) => {
     return (

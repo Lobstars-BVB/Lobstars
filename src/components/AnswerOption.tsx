@@ -7,7 +7,7 @@ type Props = {
     isSelected: boolean,
     isSubmitted: boolean,
     stateHook: (value: React.SetStateAction<number | null>) => void,
-}
+};
 
 export const AnswerOption: React.FC<Props> = ({ answer, index, isCorrect, isSelected, isSubmitted, stateHook }: Props) => {
 
