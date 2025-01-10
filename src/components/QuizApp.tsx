@@ -5,6 +5,7 @@ import { QuizScoreDisplay } from "./QuizScoreDisplay.tsx";
 import { AnswerExplanation } from "./AnswerExplanation.tsx";
 import { AnswerOption } from "./AnswerOption.tsx";
 import { QuizProgress } from "./QuizProgress.tsx";
+import {QuizStateChangeButton} from "./QuizStateChangeButton.tsx";
 
 // non-negative values correspond to question indices
 const QUIZ_OPENING_STATE = -1;
@@ -47,26 +48,24 @@ const QuizApp: React.FC = () => {
 
   if (currentQuestionIndex === QUIZ_OPENING_STATE) {
     return (
-      <div className="quiz-container">
+      <div className="quiz-container flex flex-col items-center">
         <p>
           Welcome, Lobstar! This quiz is designed to enhance your knowledge of
           Ultimate Frisbee and help you grow as a valued member of the Lobstars
           team. Test your skills, learn something new, and aim for the stars.
           Good luck!
         </p>
-        <button onClick={startQuiz}>Start Quiz</button>
+        <QuizStateChangeButton text={"Start Quiz"} onClick={startQuiz} />
       </div>
     );
   }
 
   if (currentQuestionIndex === QUIZ_CLOSING_STATE) {
     return (
-      <div className="quiz-container">
+      <div className="quiz-container flex flex-col items-center">
         <h2 className="text-4xl">Quiz Completed!</h2>
-
         <QuizScoreDisplay score={score} maximumScore={questions.length} />
-
-        <button onClick={startQuiz}>Restart Quiz</button>
+        <QuizStateChangeButton text={"Restart Quiz"} onClick={startQuiz} />
       </div>
     );
   }
@@ -75,7 +74,7 @@ const QuizApp: React.FC = () => {
 
   return (
     <div className="quiz-container">
-      <div className="pb-4" id="container-for-progress-bar">
+      <div className="pb-6" id="container-for-progress-bar">
         <QuizProgress
           currentValue={currentQuestionIndex}
           maxValue={questions.length}
@@ -96,26 +95,18 @@ const QuizApp: React.FC = () => {
         ))}
       </div>
       {isSubmitted ? (
-        <div>
+        <div className="flex flex-col items-center">
           <AnswerExplanation quizQuestion={currentQuestion} isCorrect={selectedAnswer === currentQuestion.correctIndex} />
 
-          <button className={"question-change-btn"} onClick={nextQuestion}>
-            {currentQuestionIndex < questions.length - 1
+          <QuizStateChangeButton text={currentQuestionIndex < questions.length - 1
               ? "Next Question"
-              : "Finish Quiz"}
-          </button>
+              : "Finish Quiz"} onClick={nextQuestion} />
         </div>
       ) : (
-          <div>
+          <div className="flex flex-col items-center">
             <div className="explanation"></div>
 
-            <button
-                className={"submit-btn"}
-                onClick={submitAnswer}
-                disabled={selectedAnswer === null}
-            >
-              Submit
-            </button>
+            <QuizStateChangeButton text={"Submit"} onClick={submitAnswer} disabled={selectedAnswer === null} />
           </div>
 
       )}
