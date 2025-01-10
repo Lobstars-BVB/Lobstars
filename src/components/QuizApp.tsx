@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "../styles/QuizApp.css";
 import { type QuizQuestion, retrieveQuizQuestions } from "../data/questions.ts";
 import { QuizScoreDisplay } from "./QuizScoreDisplay.tsx";
-import {AnswerExplanation} from "./AnswerExplanation.tsx";
+import { AnswerExplanation } from "./AnswerExplanation.tsx";
+import { AnswerOption } from "./AnswerOption.tsx";
 
 // non-negative values correspond to question index
 const QUIZ_OPENING_STATE = -1;
@@ -91,18 +92,14 @@ const QuizApp: React.FC = () => {
       <h2>{currentQuestion.question}</h2>
       <div>
         {currentQuestion.answers.map((answer: string, index: number) => (
-          <button
-            key={index}
-            onClick={() => setSelectedAnswer(index)}
-            className={`answer-btn \
-${isSubmitted && index === currentQuestion.correctIndex ? "correct" : ""} \
-${isSubmitted && index === selectedAnswer && index !== currentQuestion.correctIndex ? "incorrect" : ""} \
-${!isSubmitted && index === selectedAnswer ? "selected" : ""}\
-`}
-            disabled={isSubmitted}
-          >
-            {answer}
-          </button>
+          <AnswerOption
+            answer={answer}
+            index={index}
+            isCorrect={index === currentQuestion.correctIndex}
+            isSelected={index === selectedAnswer}
+            isSubmitted={isSubmitted}
+            stateHook={setSelectedAnswer}
+          />
         ))}
       </div>
       {isSubmitted ? (
