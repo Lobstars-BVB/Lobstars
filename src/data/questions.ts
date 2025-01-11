@@ -139,11 +139,11 @@ const questions: QuizQuestion[] = [
       "Which of the following is NOT a permissible throw in Ultimate Frisbee?",
     answers: ["Forehand", "Backhand", "Hammer", "Kick pass"],
     correctIndex: 3,
-    explanation: "Players must throw the disc; kicking is not allowed.",
+    explanation: "Players must throw the disc; kicking is not allowed.", // more explanation, as not explicitly stated in the reference
     reference: {
-      sourceName: "USAU Official Rules of Ultimate",
+      sourceName: "USAU Official Rules of Ultimate", // US rule
       link: "https://usaultimate.org/rules/",
-      locator: "16.A",
+      locator: "16.A", // recheck this statement; the correct answer would be implicit
     },
   },
   {
@@ -164,7 +164,7 @@ const questions: QuizQuestion[] = [
     correctIndex: 2,
     explanation: "Each team is allowed two time-outs per half.",
     reference: {
-      sourceName: "USAU Official Rules of Ultimate",
+      sourceName: "USAU Official Rules of Ultimate", // US rule
       link: "https://usaultimate.org/rules/",
       locator: "7.B",
     },
@@ -201,7 +201,7 @@ const questions: QuizQuestion[] = [
     reference: {
       sourceName: "WFDF Rules of Ultimate",
       link: "https://rules.wfdf.sport/wp-content/uploads/2024/12/WFDF-Rules-of-Ultimate-2025-2028.pdf",
-      locator: "7.12 (NOT THE ONLY OPTION)",
+      locator: "7.12", // seems to indicate another possibility
     },
   },
   {
@@ -270,7 +270,7 @@ const questions: QuizQuestion[] = [
     reference: {
       sourceName: "WFDF Rules of Ultimate",
       link: "https://rules.wfdf.sport/wp-content/uploads/2024/12/WFDF-Rules-of-Ultimate-2025-2028.pdf",
-      locator: "5.3 (RECHECK)",
+      locator: "5.3", // recheck
     },
   },
   {
@@ -328,8 +328,8 @@ function getRandomQuestions(
   questionArray: QuizQuestion[],
   count: number,
 ): QuizQuestion[] {
-  let shuffledQuestions = shuffleArray(questionArray); // since the result is sliced, we could stop the procedure when reaching count
-  return shuffledQuestions.slice(0, count);
+  let shuffledQuestions = shuffleArray(questionArray); // one can integrate the slicing here for further optimization
+  return shuffledQuestions.slice(0, count); // since the result is sliced, we could stop the procedure when reaching count
 }
 
 export function retrieveQuizQuestions(): QuizQuestion[] {
