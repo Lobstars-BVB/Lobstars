@@ -69,12 +69,11 @@ const QuizApp: React.FC = () => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://lobstars-frisbee.club/"
+          href="https://forms.gle/UYH15pZAPwdEPQAs5"
           className="absolute bottom-1 right-2 font-bold"
         >
           Feedback
-        </a>{" "}
-        {/* TODO: Add link to feedback form */}
+        </a>
       </div>
     );
   }
