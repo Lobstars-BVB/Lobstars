@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/QuizApp.css";
-import { type QuizQuestion, retrieveQuizQuestions } from "../data/questions.ts";
+import { getQuestions, type QuizQuestion } from "../data/questions.ts";
 import { QuizScoreDisplay } from "./QuizScoreDisplay.tsx";
 import { AnswerExplanation } from "./AnswerExplanation.tsx";
 import { AnswerOption } from "./AnswerOption.tsx";
@@ -17,14 +17,25 @@ const QuizApp: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
-  const [questions, setQuestion] = useState<QuizQuestion[]>([]);
+  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false); // Track question loading
 
   const startQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
     setSelectedAnswer(null);
     setIsSubmitted(false);
-    setQuestion(retrieveQuizQuestions());
+    setIsLoading(true);
+
+    getQuestions()
+      .then((fetchedQuestions: QuizQuestion[]) => {
+        setQuestions(fetchedQuestions);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false); // Stop loading even on error
+      });
   };
 
   const submitAnswer = () => {
@@ -45,6 +56,14 @@ const QuizApp: React.FC = () => {
       setCurrentQuestionIndex(QUIZ_CLOSING_STATE); // End quiz
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="quiz-container flex flex-col items-center">
+        <p>Loading quiz...</p>
+      </div>
+    );
+  }
 
   if (currentQuestionIndex === QUIZ_OPENING_STATE) {
     return (
@@ -93,6 +112,7 @@ const QuizApp: React.FC = () => {
       <div>
         {currentQuestion.answers.map((answer: string, index: number) => (
           <AnswerOption
+            key={index}
             answer={answer}
             index={index}
             isCorrect={index === currentQuestion.correctIndex}
