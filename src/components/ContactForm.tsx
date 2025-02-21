@@ -14,6 +14,7 @@ export default function ContactForm() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+
     if (state !== State.Input) return;
 
     setState(State.Sending);
@@ -34,9 +35,8 @@ export default function ContactForm() {
         { publicKey: "YGL6jQ4ZZE8y_Ihth" },
       );
       setState(State.Sent);
-    } catch (e) {
+    } catch (_err) {
       setState(State.Error);
-      console.log(e);
     }
   }
 
