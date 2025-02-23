@@ -112,7 +112,7 @@ const QuizApp: React.FC = () => {
       <div>
         {currentQuestion.answers.map((answer: string, index: number) => (
           <AnswerOption
-            key={index}
+            key={answer}
             answer={answer}
             index={index}
             isCorrect={index === currentQuestion.correctIndex}
