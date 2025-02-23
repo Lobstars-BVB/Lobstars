@@ -1,3 +1,5 @@
+import { z } from 'zod';
+
 interface Reference {
   sourceName: string;
   link: string;
@@ -11,6 +13,26 @@ export interface QuizQuestion {
   explanation: string;
   reference: Reference;
 }
+
+const ReferenceSchema = z.object({
+  sourceName: z.string().min(1, "The source should not be empty").trim(),
+  link: z.string().min(1, "The link should not be empty").trim().url("Invalid URL format"),
+  locator: z.string().min(1, "The locator should not be empty").trim(),
+});
+
+const QuizQuestionSchema = z.object({
+  question: z.string().min(10, "The question should be at least 10 characters long").trim(),
+  answers: z.array(z.string().min(1, "The answer should not be empty").trim()).min(2, "There should be at least 2 answers"),
+  correctIndex: z.number().int().nonnegative("Correct index cannot be negative"),
+  explanation: z.string().min(10, "The explanation should be at least 10 characters long").trim(),
+  reference: ReferenceSchema,
+}).refine((data: QuizQuestion) => data.correctIndex < data.answers.length, {
+  message: "The correct index should correspond to an answer",
+  path: ["correctIndex"],
+});
+
+const QuizQuestionArraySchema = z.array(QuizQuestionSchema);
+
 
 export function getQuestions(): Promise<QuizQuestion[]> {
   const headers: Headers = new Headers();
@@ -28,7 +50,13 @@ export function getQuestions(): Promise<QuizQuestion[]> {
   return fetch(request)
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
-      return res as QuizQuestion[];
+
+      const questionsArrayValidation = QuizQuestionArraySchema.safeParse(res);
+      if (!questionsArrayValidation.success) {
+        console.error("Invalid quiz data:", questionsArrayValidation.error.format()); // consider throwing an error
+        return [];
+      }
+
+      return questionsArrayValidation.data as QuizQuestion[];
     });
 }
