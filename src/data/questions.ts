@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import {z, ZodObject} from 'zod';
 
 interface Reference {
   sourceName: string;
