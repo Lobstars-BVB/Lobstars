@@ -50,11 +50,10 @@ export function getQuestions(): Promise<QuizQuestion[]> {
   return fetch(request)
     .then((res) => res.json())
     .then((res) => {
-
       const questionsArrayValidation = QuizQuestionArraySchema.safeParse(res);
       if (!questionsArrayValidation.success) {
         console.error("Invalid quiz data:", questionsArrayValidation.error.format()); // consider throwing an error
-        return [];
+        throw new Error("The fetched quiz data was invalid");
       }
 
       return questionsArrayValidation.data as QuizQuestion[];
