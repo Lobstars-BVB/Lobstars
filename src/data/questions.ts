@@ -1,4 +1,4 @@
-import {z, ZodObject} from 'zod';
+import { z } from 'zod';
 
 interface Reference {
   sourceName: string;
@@ -15,16 +15,16 @@ export interface QuizQuestion {
 }
 
 const ReferenceSchema: z.ZodType<Reference> = z.object({
-  sourceName: z.string().min(1, "The source should not be empty").trim(),
-  link: z.string().min(1, "The link should not be empty").trim().url("Invalid URL format"),
-  locator: z.string().min(1, "The locator should not be empty").trim(),
+  sourceName: z.string().trim().min(1, "The source should not be empty"),
+  link: z.string().trim().min(1, "The link should not be empty").url("Invalid URL format"),
+  locator: z.string().trim().min(1, "The locator should not be empty"),
 });
 
 const QuizQuestionSchema: z.ZodType<QuizQuestion> = z.object({
-  question: z.string().min(10, "The question should be at least 10 characters long").trim(),
-  answers: z.array(z.string().min(1, "The answer should not be empty").trim()).min(2, "There should be at least 2 answers"),
+  question: z.string().trim().min(10, "The question should be at least 10 characters long"),
+  answers: z.array(z.string().trim().min(1, "The answer should not be empty")).min(2, "There should be at least 2 answers"),
   correctIndex: z.number().int().nonnegative("Correct index cannot be negative"),
-  explanation: z.string().min(10, "The explanation should be at least 10 characters long").trim(),
+  explanation: z.string().trim().min(10, "The explanation should be at least 10 characters long"),
   reference: ReferenceSchema,
 }).refine((data: QuizQuestion) => data.correctIndex < data.answers.length, {
   message: "The correct index should correspond to an answer",
