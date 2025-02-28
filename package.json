@@ -19,6 +19,7 @@
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
     "@emailjs/browser": "^4.2.0",
+    "@tanstack/react-query": "^5.66.9",
     "@types/react": "^18.2.62",
     "@types/react-dom": "^18.2.19",
     "astro": "^4.1.3",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@iconify-json/ic": "^1.1.17",
     "@playwright/test": "^1.49.1",
+    "@tanstack/eslint-plugin-query": "^5.66.1",
     "@types/node": "^22.10.5",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.12.3",

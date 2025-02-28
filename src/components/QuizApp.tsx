@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../styles/QuizApp.css";
-import { getQuestions, type QuizQuestion } from "../data/questions.ts";
+import { getQuestions } from "../data/questions.ts";
 import { QuizScoreDisplay } from "./QuizScoreDisplay.tsx";
 import { AnswerExplanation } from "./AnswerExplanation.tsx";
 import { AnswerOption } from "./AnswerOption.tsx";
 import { QuizProgress } from "./QuizProgress.tsx";
 import { QuizStateChangeButton } from "./QuizStateChangeButton.tsx";
+import { useQuery } from "@tanstack/react-query";
 
 // non-negative values correspond to question indices
 const QUIZ_OPENING_STATE = -1;
@@ -17,44 +18,24 @@ const QuizApp: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
-  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false); // Track question loading
+
+  const {
+    data: questions,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: ["quizQuestions"],
+    queryFn: getQuestions,
+    enabled: false, // Prevent auto-fetching on mount
+  });
 
   const startQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
     setSelectedAnswer(null);
     setIsSubmitted(false);
-    setIsLoading(true);
-
-    getQuestions()
-      .then((fetchedQuestions: QuizQuestion[]) => {
-        setQuestions(fetchedQuestions);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setIsLoading(false); // Stop loading even on error
-      });
-  };
-
-  const submitAnswer = () => {
-    if (selectedAnswer === null) return;
-    setIsSubmitted(true);
-
-    if (selectedAnswer === questions[currentQuestionIndex].correctIndex) {
-      setScore((prev) => prev + 1);
-    }
-  };
-
-  const nextQuestion = () => {
-    setIsSubmitted(false);
-    setSelectedAnswer(null);
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prev) => prev + 1);
-    } else {
-      setCurrentQuestionIndex(QUIZ_CLOSING_STATE); // End quiz
-    }
+    refetch();
   };
 
   if (isLoading) {
@@ -65,7 +46,16 @@ const QuizApp: React.FC = () => {
     );
   }
 
-  if (currentQuestionIndex === QUIZ_OPENING_STATE) {
+  if (error) {
+    return (
+      <div className="quiz-container flex flex-col items-center">
+        <p>Error loading quiz. Please try again.</p>
+        <QuizStateChangeButton text={"Retry"} onClick={startQuiz} />
+      </div>
+    );
+  }
+
+  if (!questions || currentQuestionIndex === QUIZ_OPENING_STATE) {
     return (
       <div className="quiz-container flex flex-col items-center">
         <p>
@@ -98,6 +88,24 @@ const QuizApp: React.FC = () => {
   }
 
   const currentQuestion = questions[currentQuestionIndex];
+  const submitAnswer = () => {
+    if (selectedAnswer === null) return;
+    setIsSubmitted(true);
+
+    if (selectedAnswer === questions[currentQuestionIndex].correctIndex) {
+      setScore((prev) => prev + 1);
+    }
+  };
+
+  const nextQuestion = () => {
+    setIsSubmitted(false);
+    setSelectedAnswer(null);
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+    } else {
+      setCurrentQuestionIndex(QUIZ_CLOSING_STATE); // End quiz
+    }
+  };
 
   return (
     <div className="quiz-container">

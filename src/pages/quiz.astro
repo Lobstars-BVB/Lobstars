@@ -4,8 +4,7 @@ import HeaderSection from "../components/HeaderSection.astro";
 import Layout from "../layouts/Layout.astro";
 
 import "../styles/global.css";
-import QuizApp from "../components/QuizApp.tsx";
-import QuizLayout from "../layouts/QuizLayout.astro";
+import QuizAppWrapper from "../components/QuizAppWrapper.tsx";
 ---
 
 <style>
@@ -48,7 +47,7 @@ import QuizLayout from "../layouts/QuizLayout.astro";
       </p>
 
       <div style="text-align: center;">
-        <QuizApp client:only />
+        <QuizAppWrapper client:only />
       </div>
     </section>
 
