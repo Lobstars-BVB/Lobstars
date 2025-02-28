@@ -52,7 +52,7 @@ export function getQuestions(): Promise<QuizQuestion[]> {
     .then((res) => {
       const questionsArrayValidation = QuizQuestionArraySchema.safeParse(res);
       if (!questionsArrayValidation.success) {
-        console.error("Invalid quiz data:", questionsArrayValidation.error.format()); // consider throwing an error
+        console.error("Invalid quiz data:", questionsArrayValidation.error.format());
         throw new Error("The fetched quiz data was invalid");
       }
 
