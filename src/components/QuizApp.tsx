@@ -6,7 +6,7 @@ import { AnswerExplanation } from "./AnswerExplanation.tsx";
 import { AnswerOption } from "./AnswerOption.tsx";
 import { QuizProgress } from "./QuizProgress.tsx";
 import { QuizStateChangeButton } from "./QuizStateChangeButton.tsx";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 // non-negative values correspond to question indices
 const QUIZ_OPENING_STATE = -1;
@@ -19,6 +19,8 @@ const QuizApp: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
 
+  const queryClient = useQueryClient();
+
   const {
     data: questions,
     isLoading,
@@ -27,7 +29,7 @@ const QuizApp: React.FC = () => {
   } = useQuery({
     queryKey: ["quizQuestions"],
     queryFn: getQuestions,
-    enabled: false, // Prevent auto-fetching on mount
+    enabled: false, // prevent auto-fetching on mount
   });
 
   const startQuiz = () => {
@@ -35,6 +37,9 @@ const QuizApp: React.FC = () => {
     setScore(0);
     setSelectedAnswer(null);
     setIsSubmitted(false);
+
+    // prevent showing the old question before getting the new ones
+    queryClient.removeQueries({ queryKey: ["quizQuestions"], exact: true });
     refetch();
   };
 
