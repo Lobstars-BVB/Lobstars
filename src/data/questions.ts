@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import {z, ZodObject} from 'zod';
 
 interface Reference {
   sourceName: string;
@@ -14,13 +14,13 @@ export interface QuizQuestion {
   reference: Reference;
 }
 
-const ReferenceSchema = z.object({
+const ReferenceSchema: z.ZodType<Reference> = z.object({
   sourceName: z.string().min(1, "The source should not be empty").trim(),
   link: z.string().min(1, "The link should not be empty").trim().url("Invalid URL format"),
   locator: z.string().min(1, "The locator should not be empty").trim(),
 });
 
-const QuizQuestionSchema = z.object({
+const QuizQuestionSchema: z.ZodType<QuizQuestion> = z.object({
   question: z.string().min(10, "The question should be at least 10 characters long").trim(),
   answers: z.array(z.string().min(1, "The answer should not be empty").trim()).min(2, "There should be at least 2 answers"),
   correctIndex: z.number().int().nonnegative("Correct index cannot be negative"),
