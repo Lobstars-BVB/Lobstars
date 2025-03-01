@@ -22,7 +22,7 @@ export type QuizQuestion = z.infer<typeof quizQuestionSchema>;
 const quizQuestionArraySchema = z.array(quizQuestionSchema);
 
 
-export function getQuestions(): Promise<QuizQuestion[]> {
+export async function getQuestions(): Promise<QuizQuestion[]> {
   const headers: Headers = new Headers();
   headers.set("Content-Type", "application/json; charset=utf-8");
   headers.set("Accept", "application/json");
@@ -35,18 +35,13 @@ export function getQuestions(): Promise<QuizQuestion[]> {
     },
   );
 
-  return fetch(request)
-    .then((res) => res.json())
-    .then((res) => {
-      const quizValidation = quizQuestionArraySchema.safeParse(res);
-      if (!quizValidation.success) {
-        console.error(
-          "Invalid quiz data:",
-          quizValidation.error.format(),
-        );
-        throw new Error("The fetched quiz data was invalid");
-      }
+  const response = await fetch(request);
+  const responseJson = await response.json();
 
-      return quizValidation.data;
-});
+  try {
+    return quizQuestionArraySchema.parse(responseJson);
+  } catch (error) {
+    console.error("Invalid quiz data:", error);
+    throw new Error("The fetched quiz data was invalid");
+  }
 }
