@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState, useMemo} from "react";
 import "../styles/QuizApp.css";
 import { getQuestions } from "../data/questions.ts";
 import { QuizScoreDisplay } from "./QuizScoreDisplay.tsx";
@@ -11,6 +11,24 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 // non-negative values correspond to question indices
 const QUIZ_OPENING_STATE = -1;
 const QUIZ_CLOSING_STATE = -2;
+
+const loadingMessages = [
+  "Warming up the disc… Get ready to huck some knowledge!",
+  "Spinning up the quiz like a perfect forehand flick!",
+  "Chilly waiting? Just like a good reset—quiz incoming!",
+  "Catching the signal… Stay in the zone, Lobstar!",
+  "Setting up the perfect assist… Quiz coming your way!",
+]
+
+const errorMessages = [
+  "Turnover! Something went wrong—let’s try again!",
+  "Out of bounds! Refresh and get back in play.",
+  "We dropped the disc! Give it another shot.",
+  "Stall 9… stall 10… Oops! Try reloading the quiz.",
+  "Fumbled the pull—let’s reset and try again!",
+]
+
+const getRandomMessage = (messages: string[]) => messages[Math.floor(Math.random() * messages.length)];
 
 const QuizApp: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] =
@@ -32,6 +50,16 @@ const QuizApp: React.FC = () => {
     enabled: false, // prevent auto-fetching on mount
   });
 
+  const loadingMessage = useMemo(
+    () => getRandomMessage(loadingMessages),
+    [isLoading],
+  )
+
+  const errorMessage = useMemo(
+    () => getRandomMessage(errorMessages),
+    [error],
+  )
+
   const startQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
@@ -46,7 +74,7 @@ const QuizApp: React.FC = () => {
   if (isLoading) {
     return (
       <div className="quiz-container flex flex-col items-center">
-        <p>Loading quiz...</p>
+        <p>{loadingMessage}</p>
       </div>
     );
   }
@@ -54,13 +82,13 @@ const QuizApp: React.FC = () => {
   if (error) {
     return (
       <div className="quiz-container flex flex-col items-center">
-        <p>Error loading quiz. Please try again.</p>
+        <p>{errorMessage}</p>
         <QuizStateChangeButton text={"Retry"} onClick={startQuiz} />
       </div>
     );
   }
 
-  if (!questions || currentQuestionIndex === QUIZ_OPENING_STATE) {
+  if (!questions || currentQuestionIndex === QUIZ_OPENING_STATE) { // ensure questions is defined
     return (
       <div className="quiz-container flex flex-col items-center">
         <p>
