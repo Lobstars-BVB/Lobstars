@@ -71,10 +71,16 @@ const QuizApp: React.FC = () => {
     refetch();
   };
 
-  if (isLoading) {
+  if (currentQuestionIndex === QUIZ_OPENING_STATE) {
     return (
       <div className="quiz-container flex flex-col items-center">
-        <p>{loadingMessage}</p>
+        <p>
+          Welcome, Lobstar! This quiz is designed to enhance your knowledge of
+          Ultimate Frisbee and help you grow as a valued member of the Lobstars
+          team. Test your skills, learn something new, and aim for the stars.
+          Good luck!
+        </p>
+        <QuizStateChangeButton text={"Start Quiz"} onClick={startQuiz} />
       </div>
     );
   }
@@ -88,16 +94,10 @@ const QuizApp: React.FC = () => {
     );
   }
 
-  if (!questions || currentQuestionIndex === QUIZ_OPENING_STATE) { // ensure questions is defined
+  if (isLoading || !questions) { // ensure questions is defined
     return (
       <div className="quiz-container flex flex-col items-center">
-        <p>
-          Welcome, Lobstar! This quiz is designed to enhance your knowledge of
-          Ultimate Frisbee and help you grow as a valued member of the Lobstars
-          team. Test your skills, learn something new, and aim for the stars.
-          Good luck!
-        </p>
-        <QuizStateChangeButton text={"Start Quiz"} onClick={startQuiz} />
+        <p>{loadingMessage}</p>
       </div>
     );
   }
