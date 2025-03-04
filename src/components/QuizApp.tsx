@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from "react";
+import React, { useState } from "react";
 import "../styles/QuizApp.css";
 import { getQuestions } from "../data/questions.ts";
 import { QuizScoreDisplay } from "./QuizScoreDisplay.tsx";
@@ -11,6 +11,8 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 // non-negative values correspond to question indices
 const QUIZ_OPENING_STATE = -1;
 const QUIZ_CLOSING_STATE = -2;
+
+const MINIMUM_DISPLAY_TIME = 1300; // for minimum time to show loading message
 
 const loadingMessages = [
   "Warming up the disc… Get ready to huck some knowledge!",
@@ -36,12 +38,13 @@ const QuizApp: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
+  const [loadingMessage, setLoadingMessage] = useState<string>("Loading…");
+  const [showLoading, setShowLoading] = useState<boolean>(false);
 
   const queryClient = useQueryClient();
 
   const {
     data: questions,
-    isLoading,
     error,
     refetch,
   } = useQuery({
@@ -50,25 +53,27 @@ const QuizApp: React.FC = () => {
     enabled: false, // prevent auto-fetching on mount
   });
 
-  const loadingMessage = useMemo(
-    () => getRandomMessage(loadingMessages),
-    [isLoading],
-  )
-
-  const errorMessage = useMemo(
-    () => getRandomMessage(errorMessages),
-    [error],
-  )
-
   const startQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
     setSelectedAnswer(null);
     setIsSubmitted(false);
 
+    setLoadingMessage(getRandomMessage(loadingMessages)); // it's triggered on every quiz start and but not on every re-render
+    setShowLoading(true);
+
     // prevent showing the old question before getting the new ones
     queryClient.removeQueries({ queryKey: ["quizQuestions"], exact: true });
-    refetch();
+
+    const loadStartTime = Date.now();
+    refetch().finally(() => {
+      const elapsedTime = Date.now() - loadStartTime;
+      const remainingTime = Math.max(MINIMUM_DISPLAY_TIME - elapsedTime, 0);
+
+      setTimeout(() => {
+        setShowLoading(false);
+      }, remainingTime); // to ensure loading message is readable if fetching too fast
+    });
   };
 
   if (currentQuestionIndex === QUIZ_OPENING_STATE) {
@@ -88,13 +93,13 @@ const QuizApp: React.FC = () => {
   if (error) {
     return (
       <div className="quiz-container flex flex-col items-center">
-        <p>{errorMessage}</p>
+        <p>{getRandomMessage(errorMessages)}</p>
         <QuizStateChangeButton text={"Retry"} onClick={startQuiz} />
       </div>
     );
   }
 
-  if (isLoading || !questions) { // ensure questions is defined
+  if (showLoading || !questions) { // ensure questions is defined
     return (
       <div className="quiz-container flex flex-col items-center">
         <p>{loadingMessage}</p>
