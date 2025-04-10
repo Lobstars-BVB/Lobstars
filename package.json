@@ -3,11 +3,13 @@
   "type": "module",
   "version": "0.0.1",
   "engines": {
-    "node": "22"
+    "node": "22.14.0"
   },
   "scripts": {
     "format": "prettier --write ./src",
-    "test": "prettier --check ./src",
+    "lint": "yarn lint:es && yarn lint:format",
+    "lint:es": "eslint ./src --cache",
+    "lint:format": "prettier --check ./src",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -28,16 +30,21 @@
     "react-dom": "^18.2.0",
     "react-social-media-embed": "^2.5.9",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3",
+    "typescript": "^5.7.3",
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.20.0",
     "@iconify-json/ic": "^1.1.17",
     "@playwright/test": "^1.49.1",
     "@tanstack/eslint-plugin-query": "^5.66.1",
     "@types/node": "^22.10.5",
+    "@typescript-eslint/parser": "^8.24.1",
+    "eslint": "^9.20.1",
+    "eslint-plugin-astro": "^1.3.1",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.12.3",
-    "prettier-plugin-tailwindcss": "^0.5.11"
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "typescript-eslint": "^8.24.1"
   }
 }
