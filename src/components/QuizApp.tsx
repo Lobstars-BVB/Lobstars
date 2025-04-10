@@ -20,7 +20,7 @@ const loadingMessages = [
   "Chilly waiting? Just like a good reset—quiz incoming!",
   "Catching the signal… Stay in the zone, Lobstar!",
   "Setting up the perfect assist… Quiz coming your way!",
-]
+];
 
 const errorMessages = [
   "Turnover! Something went wrong—let’s try again!",
@@ -28,9 +28,10 @@ const errorMessages = [
   "We dropped the disc! Give it another shot.",
   "Stall 9… stall 10… Oops! Try reloading the quiz.",
   "Fumbled the pull—let’s reset and try again!",
-]
+];
 
-const getRandomMessage = (messages: string[]) => messages[Math.floor(Math.random() * messages.length)];
+const getRandomMessage = (messages: string[]) =>
+  messages[Math.floor(Math.random() * messages.length)];
 
 const QuizApp: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] =
@@ -99,7 +100,8 @@ const QuizApp: React.FC = () => {
     );
   }
 
-  if (showLoading || !questions) { // ensure questions is defined
+  if (showLoading || !questions) {
+    // ensure questions is defined
     return (
       <div className="quiz-container flex flex-col items-center">
         <p>{loadingMessage}</p>
