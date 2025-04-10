@@ -57,7 +57,6 @@ export async function getQuestions(): Promise<QuizQuestion[]> {
   try {
     return quizQuestionArraySchema.parse(responseJson);
   } catch (error) {
-    console.error("Invalid quiz data:", error);
     throw new Error("The fetched quiz data was invalid");
   }
 }
