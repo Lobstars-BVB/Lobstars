@@ -54,9 +54,5 @@ export async function getQuestions(): Promise<QuizQuestion[]> {
   const response = await fetch(request);
   const responseJson = await response.json();
 
-  try {
-    return quizQuestionArraySchema.parse(responseJson);
-  } catch (error) {
-    throw new Error("The fetched quiz data was invalid");
-  }
+  return quizQuestionArraySchema.parse(responseJson);
 }
