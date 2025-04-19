@@ -27,7 +27,6 @@ export const AnswerOption: React.FC<Props> = ({
 
   return (
     <button
-      key={index}
       onClick={() => stateHook(index)}
       className={buttonClass}
       disabled={isSubmitted}
