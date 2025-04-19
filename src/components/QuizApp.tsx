@@ -12,7 +12,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 const QUIZ_OPENING_STATE = -1;
 const QUIZ_CLOSING_STATE = -2;
 
-const MINIMUM_DISPLAY_TIME = 1300; // for minimum time to show loading message
+const MINIMUM_DISPLAY_TIME = 1900; // for minimum time to show loading message
 
 const loadingMessages = [
   "Warming up the disc… Get ready to huck some knowledge!",
