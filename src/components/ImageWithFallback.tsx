@@ -1,0 +1,30 @@
+// components/ImageWithFallback.tsx
+import React, { useState } from "react";
+
+type ImageWithFallbackProps = {
+  src: string;
+  alt: string;
+  className?: string;
+  fallbackClassName?: string;
+};
+export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
+  src,
+  alt,
+  className = "my-4 rounded shadow max-h-64",
+  fallbackClassName = "my-4 italic text-gray-500 text-center",
+}) => {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return <div className={fallbackClassName}>{alt}</div>;
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      onError={() => setHasError(true)}
+      className={className}
+    />
+  );
+};
