@@ -1,11 +1,9 @@
 import { z } from "zod";
 
-
 const imageSchema = z.object({
   url: z.string().url("Invalid URL format"),
   alt: z.string().min(1, "An alternative description is required"), // in case the URL fails to load
-})
-
+});
 
 const referenceSchema = z.object({
   sourceName: z.string().trim().min(1, "The source should not be empty"),

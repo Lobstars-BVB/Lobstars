@@ -7,7 +7,7 @@ import { AnswerOption } from "./AnswerOption.tsx";
 import { QuizProgress } from "./QuizProgress.tsx";
 import { QuizStateChangeButton } from "./QuizStateChangeButton.tsx";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import {ImageWithFallback} from "./ImageWithFallback.tsx";
+import { ImageWithFallback } from "./ImageWithFallback.tsx";
 
 // non-negative values correspond to question indices
 const QUIZ_OPENING_STATE = -1;
@@ -164,7 +164,6 @@ const QuizApp: React.FC = () => {
           alt={currentQuestion.image.alt}
         />
       )}
-
 
       <div>
         {currentQuestion.answers.map((answer: string, index: number) => (
