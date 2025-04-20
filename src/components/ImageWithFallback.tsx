@@ -10,8 +10,8 @@ type ImageWithFallbackProps = {
 export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   src,
   alt,
-  className = "my-4 rounded shadow max-h-64",
-  fallbackClassName = "my-4 italic text-gray-500 text-center",
+  className = "my-4 mx-auto w-32 h-32",
+  fallbackClassName = "my-4 italic text-neon-pink-dark text-center",
 }) => {
   const [hasError, setHasError] = useState(false);
 
