@@ -6,6 +6,11 @@ export default {
       colors: {
         "dark-purple": "#1e0629",
         "neon-pink": { light: "#FFEBF5", dark: "#FF47A9" },
+        main: "#141204",
+        secondary: "#933f3f",
+        "secondary-light": "#a86565",
+        background: "#eddccc",
+        "background-secondary": "#f4e3d7",
       },
       fontFamily: {
         headline: ["Roboto", "sans-serif"],
