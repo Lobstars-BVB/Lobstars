@@ -34,7 +34,6 @@ button.answer-btn {
 }
 
 .quiz-container button:hover {
-  /* background-color: #f0f0f0; */
   @apply bg-neon-pink-light text-neon-pink-dark;
 }
 
@@ -48,7 +47,6 @@ button.answer-btn {
 }
 
 .quiz-container .selected {
-  /* background-color: #d6e9ff; */ /* Light Blue */
   @apply bg-neon-pink-light;
 }
 
