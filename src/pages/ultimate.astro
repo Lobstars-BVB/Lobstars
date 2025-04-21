@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactSection from "../components/ContactSection.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
+
+import "../styles/global.css";
+---
+
+<Layout title="What is Ultimate Frisbee? - Lobstars Berlin">
+  <main class="h-full w-full">
+    <HeaderSection id="header" />
+
+    <section class="section-container grid gap-4 px-10 pt-32">
+      <h1>What is Ultimate Frisbee?</h1>
+
+      <iframe
+        class="aspect-video w-full"
+        src="https://www.youtube.com/embed/hXArTyZcjPA?si=07KMHaIEVYeDnNCD"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+      <h2>
+        Ultimate is a non-contact, self-refereed team sport played with a flying
+        disc frisbee.
+      </h2>
+      <p>
+        <strong>The aim of the game-</strong> Two teams of seven players compete
+        on a playing field about the same length as a football field, but narrower.
+        At each end of the playing field there is an end zone. Each team defends
+        one end zone. They score a goal if one of their players catches the disc
+        in the opposite end zone.<br /><br />The player with the disc is called
+        the thrower. The thrower may not run with the disc. Instead they move
+        the disc by passing to team-mates in any direction.<br /><br />The
+        defensive team gets possession of the disc if an offensive team’s throw
+        is not caught by a player of the same team. Then the defensive team
+        becomes the offensive team and can try to score in the opposite end
+        zone.
+      </p>
+      <p>
+        <strong>Spirit of the Game-</strong> Ultimate relies upon a Spirit of the
+        Game that places the responsibility for fair play on every player. There
+        are no referees; the players are solely responsible for following and enforcing
+        the rules, even at World Championship. Competitive play is encouraged, but
+        never at the expense of respect between players, adherence to the rules,
+        and the basic joy of play.
+      </p>
+
+      <p>
+        Source: <a
+          target="_blank"
+          href="https://wfdf.sport/disciplines/ultimate/">WFDF</a
+        >
+      </p>
+    </section>
+
+    <ContactSection id="contact" />
+    <FooterSection />
+  </main>
+</Layout>

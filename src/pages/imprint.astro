@@ -4,31 +4,22 @@ import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
 
 import "../styles/global.css";
+import SectionContainer from "../components/SectionContainer.astro";
 ---
 
 <meta name="robots" content="noindex" />
 
 <Layout title="Impressum | Lobstars Ultimate Frisbee - Berlin">
   <main class="h-full w-full">
-    <HeaderSection
-      id="header"
-      logoHref="/"
-      trailingLinks={[
-        {
-          href: "/",
-          label: "Back to home",
-        },
-      ]}
-    />
-    <section class="section-container">
-      <h1 class="mb-6">Inhaltlich verantwortlich, gemäß § 5 TMG:</h1>
-      <p>Karl Secen</p>
+    <HeaderSection id="header" />
+    <SectionContainer>
+      <h1 class="my-6">Inhaltlich verantwortlich, gemäß § 5 TMG:</h1>
       <p>Sportverein Berliner Verkehrs-Betriebe 49 e.V</p>
       <p>Siegfriedstraße 71</p>
       <p>10365 Berlin, Germany</p>
       <p>
         Kontakt:
-        <span class="text-secondary">
+        <span class="text-dark-purple">
           lobstars.bvb@<span class="hidden">ignore-</span>gmail.com
         </span>
       </p>
@@ -87,7 +78,7 @@ import "../styles/global.css";
           >eRecht24 Disclaimer</a
         >
       </p>
-    </section>
+    </SectionContainer>
     <FooterSection />
   </main>
 </Layout>

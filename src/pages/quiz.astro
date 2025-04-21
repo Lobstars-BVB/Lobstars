@@ -1,0 +1,56 @@
+---
+import FooterSection from "../components/FooterSection.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import Layout from "../layouts/Layout.astro";
+
+import "../styles/global.css";
+import QuizAppWrapper from "../components/QuizAppWrapper.tsx";
+---
+
+<style>
+  .quiz-button {
+    background-color: #e7e7e7;
+    border: none;
+    color: #333;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    bottom: -100px;
+  }
+
+  .main-quiz-message {
+    font-size: 32px;
+    padding: 6px;
+    margin: 4px 2px;
+  }
+</style>
+
+<Layout title="Quiz">
+  <main class="h-full w-full">
+    <HeaderSection id="header" />
+
+    <section class="section-container grid gap-4 px-10 pt-32">
+      <h1>Here we learn how to play Ultimate Frisbee with a game</h1>
+
+      <p>
+        Please check the rules before here: <a
+          target="_blank"
+          href="https://rules.wfdf.sport/resources/"
+          class="text-neon-pink-dark">WFDF</a
+        >
+        <!-- revise the color -->
+      </p>
+
+      <div style="text-align: center;">
+        <QuizAppWrapper client:only="react" />
+      </div>
+    </section>
+
+    <FooterSection />
+  </main>
+</Layout>

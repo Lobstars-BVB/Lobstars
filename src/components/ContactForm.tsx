@@ -14,6 +14,7 @@ export default function ContactForm() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+
     if (state !== State.Input) return;
 
     setState(State.Sending);
@@ -34,15 +35,14 @@ export default function ContactForm() {
         { publicKey: "YGL6jQ4ZZE8y_Ihth" },
       );
       setState(State.Sent);
-    } catch (e) {
+    } catch (_err) {
       setState(State.Error);
-      console.log(e);
     }
   }
 
   return (
     <>
-      <p className="text-l mb-10 text-center font-medium text-main">
+      <p className="text-l text-main mb-10 text-center font-medium">
         Interested in joining a training? Other questions? Let us know!
       </p>
       {state === State.Sent && (
@@ -53,7 +53,7 @@ export default function ContactForm() {
           <p>Something went wrong.</p>
           <p>
             Send us an email at{" "}
-            <span className="font-bold text-secondary">
+            <span className="font-bold text-neon-pink-dark">
               lobstars.bvb@<span className="display: none;">ignore-</span>
               gmail.com
             </span>
@@ -99,7 +99,7 @@ export default function ContactForm() {
 
           <button
             type="submit"
-            className="rounded bg-secondary px-4 py-2 font-bold text-white hover:bg-secondary-light"
+            className="rounded bg-neon-pink-dark px-4 py-2 font-bold text-neon-pink-light hover:opacity-80"
             disabled={state === State.Sending}
           >
             {state === State.Sending ? "Sending..." : "Submit"}
