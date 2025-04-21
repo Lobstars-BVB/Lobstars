@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/QuizApp.css";
-import { getQuestions } from "../data/questions.ts";
+import { getQuestions, type QuizQuestion } from "../data/questions.ts";
 import { QuizScoreDisplay } from "./QuizScoreDisplay.tsx";
 import { AnswerExplanation } from "./AnswerExplanation.tsx";
 import { AnswerOption } from "./AnswerOption.tsx";
@@ -45,6 +45,15 @@ const QuizApp: React.FC = () => {
 
   const queryClient = useQueryClient();
 
+  const preloadImages = (questions: QuizQuestion[]) => {
+    questions.forEach((q: QuizQuestion) => {
+      if (q.image?.url) {
+        const img = new Image();
+        img.src = q.image.url;
+      }
+    });
+  };
+
   const {
     data: questions,
     error,
@@ -54,14 +63,13 @@ const QuizApp: React.FC = () => {
     queryFn: getQuestions,
     enabled: false, // prevent auto-fetching on mount
   });
-
   const startQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
     setSelectedAnswer(null);
     setIsSubmitted(false);
 
-    setLoadingMessage(getRandomMessage(loadingMessages)); // it's triggered on every quiz start and but not on every re-render
+    setLoadingMessage(getRandomMessage(loadingMessages)); // it's triggered on every quiz start but not on every re-render
     setShowLoading(true);
 
     // prevent showing the old question before getting the new ones
@@ -69,6 +77,8 @@ const QuizApp: React.FC = () => {
 
     const loadStartTime = Date.now();
     refetch().finally(() => {
+      if (questions) preloadImages(questions);
+
       const elapsedTime = Date.now() - loadStartTime;
       const remainingTime = Math.max(MINIMUM_DISPLAY_TIME - elapsedTime, 0);
 
