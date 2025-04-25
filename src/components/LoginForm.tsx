@@ -27,8 +27,7 @@ const LoginForm: React.FC = () => {
 
   return (
     <form className="mx-auto max-w-md" onSubmit={handleLogin}>
-      <h2 className="text-l mb-10 text-center">Login</h2>
-      <br/>
+      <h2 className="text-xl font-bold mb-10 text-center text-neon-pink-dark">Login</h2>
       <div className="mb-4">
         <label htmlFor="email" className="mb-2 block text-sm font-bold">
           Email:
