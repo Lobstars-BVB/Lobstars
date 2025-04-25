@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         "dark-purple": "#1e0629",
-        "neon-pink": { light: "#FFEBF5", dark: "#FF47A9" },
+        "neon-pink": { light: "#FFEBF5", dark: "#D50072" },
       },
       fontFamily: {
         headline: ["Roboto", "sans-serif"],
