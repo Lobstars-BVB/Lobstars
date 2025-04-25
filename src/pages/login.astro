@@ -1,0 +1,22 @@
+---
+
+import FooterSection from "../components/FooterSection.astro";
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import LoginForm from "../components/LoginForm.tsx";
+---
+
+<Layout title="Login">
+    <main class="h-full w-full">
+        <HeaderSection id="header" />
+
+        <section class="section-container grid gap-4 px-10 pt-32">
+            <div>
+                <LoginForm client:only="react" />
+            </div>
+        </section>
+
+
+        <FooterSection />
+    </main>
+</Layout>
