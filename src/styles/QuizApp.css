@@ -1,8 +1,8 @@
 .quiz-container {
   position: relative;
-  max-width: 650px;
+  max-width: 600px;
   margin: 50px auto;
-  padding: 20px;
+  padding: 20px 10px;
   border: 2px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -19,7 +19,7 @@
 .quiz-container button {
   display: block;
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px;
   margin: 10px 0;
   font-size: 16px;
   cursor: pointer;
