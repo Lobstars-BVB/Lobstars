@@ -54,12 +54,6 @@ a {
   @apply text-neon-pink-dark;
 }
 
-.explanation {
-  min-height: 120px; /* Reserve space for the text */
-  margin-bottom: 10px;
-  background-color: #fff; /* White background for explanation */
-}
-
 p#score {
   @apply text-xl font-semibold text-neon-pink-dark;
 }

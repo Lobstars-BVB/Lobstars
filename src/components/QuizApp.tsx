@@ -206,8 +206,6 @@ const QuizApp: React.FC = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center">
-          <div className="explanation"></div>
-
           <QuizStateChangeButton
             text={"Submit"}
             onClick={submitAnswer}
