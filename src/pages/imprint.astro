@@ -11,9 +11,19 @@ import SectionContainer from "../components/SectionContainer.astro";
 
 <Layout title="Impressum | Lobstars Ultimate Frisbee - Berlin">
   <main class="h-full w-full">
-    <HeaderSection id="header" />
+    <HeaderSection
+      id="header"
+      logoHref="/"
+      trailingLinks={[
+        {
+          href: "/",
+          label: "Home",
+        },
+      ]}
+    />
     <SectionContainer>
-      <h1 class="my-6">Inhaltlich verantwortlich, gemäß § 5 TMG:</h1>
+      <h1 class="mb-6">Inhaltlich verantwortlich, gemäß § 5 TMG:</h1>
+      <p>Karl Secen</p>
       <p>Sportverein Berliner Verkehrs-Betriebe 49 e.V</p>
       <p>Siegfriedstraße 71</p>
       <p>10365 Berlin, Germany</p>
