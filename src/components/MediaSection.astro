@@ -40,7 +40,7 @@ const photos = [
   <a class="anchor" id={id}></a>
   <div class="mt-4 grid gap-6 sm:grid-cols-2">
     {
-      photos.map(({ photo, alt }, index) => (
+      photos.map(({ photo, alt }) => (
         <ContentContainer>
           <Image src={photo} alt={alt} {...imageProps} />
         </ContentContainer>
@@ -48,7 +48,7 @@ const photos = [
     }
   </div>
   <div id="seeMoreContainer" class="mt-4 flex justify-center">
-    <a href="media" class="place-content-center">
+    <a href="/media" class="place-content-center">
         <button id="seeMore">See More</button>
     </a>
   </div>
