@@ -11,8 +11,10 @@ interface Props {
 const { title, pubDate, author, tags, link } = Astro.props;
 ---
 
-<li class="bg-white bg-opacity-70 shadow-md rounded-sm p-4 transition hover:shadow-lg">
-  <article class="flex flex-col gap-2 cursor-pointer" data-href={link}>
+<li
+  class="rounded-sm bg-white bg-opacity-70 p-4 shadow-md transition hover:shadow-lg"
+>
+  <article class="flex cursor-pointer flex-col gap-2" data-href={link}>
     <p class="text-xs text-gray-500">
       Date:
       <time datetime={pubDate.toString()}>{pubDate.toDateString()}</time>
@@ -26,11 +28,12 @@ const { title, pubDate, author, tags, link } = Astro.props;
         tags.map((tag) => (
           <p>
             <button
-              data-href=`#TODO-${tag}`
-              class="tag text-sm rounded-xl bg-gray-100 text-gray-800 px-3 py-1.5 hover:bg-gray-200"
+              data-href={`#TODO-${tag}`}
+              class="tag rounded-xl bg-gray-100 px-3 py-1.5 text-sm text-gray-800 hover:bg-gray-200"
             >
               {tag}
-            </button> <!-- We need a special styling for tag buttons -->
+            </button>
+            {/* We need special styling for tag buttons */}
           </p>
         ))
       }
@@ -39,18 +42,18 @@ const { title, pubDate, author, tags, link } = Astro.props;
 </li>
 
 <script>
-  document.querySelectorAll("article[data-href]").forEach(article => {
+  document.querySelectorAll("article[data-href]").forEach((article) => {
     article.addEventListener("click", (e) => {
       const href = article.dataset.href;
       if (href) window.location.href = href;
     });
   });
 
-  document.querySelectorAll("button.tag").forEach(tag => {
+  document.querySelectorAll("button.tag").forEach((tag) => {
     tag.addEventListener("click", (e) => {
       e.stopPropagation();
       const href = tag.dataset.href;
       if (href) window.location.href = href;
-    })
-  })
+    });
+  });
 </script>
