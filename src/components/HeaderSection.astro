@@ -2,13 +2,18 @@
 import claw from "../assets/claw.png";
 import { Image } from "astro:assets";
 
+type TrailingLink = {
+  href: string;
+  label: string;
+};
+
 interface Props {
   id: string;
+  logoHref?: string; // TODO: clarify why this is needed
+  trailingLinks?: TrailingLink[];
 }
 
-const { id } = Astro.props;
-
-const trailingLinks = [
+const defaultTrailingLinks: TrailingLink[] = [
   {
     href: "/",
     label: "Home",
@@ -18,6 +23,8 @@ const trailingLinks = [
     label: "What is Ultimate?",
   },
 ];
+
+const { id, logoHref, trailingLinks = defaultTrailingLinks } = Astro.props;
 ---
 
 <header id={id} class="fixed left-0 right-0 z-50 bg-neon-pink-light">
