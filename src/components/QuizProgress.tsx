@@ -15,7 +15,7 @@ export const QuizProgress: React.FC<ProgressProps> = ({
         Quiz progress:{" "}
       </label>
       <progress id="quiz-progress" max={maxValue} value={currentValue}>
-        {" "}
+        { `${currentValue}/${maxValue}` }
       </progress>
     </div>
   );
