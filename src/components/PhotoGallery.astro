@@ -1,0 +1,39 @@
+---
+import {Image} from "astro:assets";
+import team2 from "../assets/team-2.jpg";
+import team3 from "../assets/team-3.jpg";
+import team4 from "../assets/team-4.jpg";
+import team5 from "../assets/team-5.jpg";
+import action2 from "../assets/action-2.jpg";
+import action3 from "../assets/action-3.jpg";
+import action4 from "../assets/action-4.jpg";
+import action1 from "../assets/action-1.jpg";
+import ContentContainer from "./ContentContainer.astro";
+
+const imageProps = {
+  widths: [350, 400, 600],
+  sizes: "(max-width: 450px) 350px, (max-width: 800) 400px, 600px",
+  quality: 30,
+};
+
+const photos = [
+  { photo: team3, alt: "Team Photo Lobstars" },
+  { photo: action1, alt: "Releasing the Disc" },
+  { photo: action3, alt: "Throwing the disc with a marker" },
+  { photo: team5, alt: "Team Photo in Pink" },
+  { photo: team4, alt: "Team Photo Interflug Pickup Tournament" },
+  { photo: action4, alt: "Throwing Frisbee and Swimming" },
+  { photo: action2, alt: "Pulling the Disc" },
+  { photo: team2, alt: "Celebration Winner of the Spirit Price" },
+];
+
+---
+<div class="mt-4 grid gap-6 sm:grid-cols-2">
+  {
+    photos.map(({ photo, alt }) => (
+      <ContentContainer>
+        <Image src={photo} alt={alt} {...imageProps} />
+      </ContentContainer>
+    ))
+  }
+</div>

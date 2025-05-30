@@ -29,10 +29,10 @@ const photos = [
   { photo: action1, alt: "Releasing the Disc" },
   { photo: action3, alt: "Throwing the disc with a marker" },
   { photo: team5, alt: "Team Photo in Pink" },
-  { photo: team4, alt: "Team Photo Interflug Pickup Tournament" },
-  { photo: action4, alt: "Throwing Frisbee and Swimming" },
-  { photo: action2, alt: "Pulling the Disc" },
-  { photo: team2, alt: "Celebration Winner of the Spirit Price" },
+  // { photo: team4, alt: "Team Photo Interflug Pickup Tournament" },
+  // { photo: action4, alt: "Throwing Frisbee and Swimming" },
+  // { photo: action2, alt: "Pulling the Disc" },
+  // { photo: team2, alt: "Celebration Winner of the Spirit Price" },
 ];
 ---
 
@@ -41,25 +41,18 @@ const photos = [
   <div class="mt-4 grid gap-6 sm:grid-cols-2">
     {
       photos.map(({ photo, alt }, index) => (
-        <ContentContainer class={`photo ${index < 4 ? "" : "hidden"}`}>
+        <ContentContainer>
           <Image src={photo} alt={alt} {...imageProps} />
         </ContentContainer>
       ))
     }
   </div>
-  <div id="loadMoreContainer" class="mt-4 flex justify-center">
-    <button id="loadMore" class="place-content-center"> Load More</button>
+  <div id="seeMoreContainer" class="mt-4 flex justify-center">
+    <a href="media" class="place-content-center">
+        <button id="seeMore">See More</button>
+    </a>
   </div>
   <div class="mt-12 hidden sm:block">
     <Instagram client:load />
   </div>
 </SectionContainer>
-
-<script>
-  document.getElementById("loadMore")?.addEventListener("click", function () {
-    document.querySelectorAll(".photo.hidden").forEach((el) => {
-      el.classList.remove("hidden");
-    });
-    this.style.display = "none"; // Hide the button after clicking
-  });
-</script>
