@@ -11,7 +11,7 @@ export const AnswerExplanation: React.FC<QuizQuestionProps> = ({
   isCorrect,
 }: QuizQuestionProps) => {
   return (
-    <div className="explanation">
+    <div>
       <p>{isCorrect ? "Correct!" : "Incorrect!"}</p>
       <p>{quizQuestion.explanation}</p>
       <p>

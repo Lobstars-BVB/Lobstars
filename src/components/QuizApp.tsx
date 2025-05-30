@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import "../styles/QuizApp.css";
-import { getQuestions } from "../data/questions.ts";
+import { getQuestions, type QuizQuestion } from "../data/questions.ts";
 import { QuizScoreDisplay } from "./QuizScoreDisplay.tsx";
 import { AnswerExplanation } from "./AnswerExplanation.tsx";
 import { AnswerOption } from "./AnswerOption.tsx";
 import { QuizProgress } from "./QuizProgress.tsx";
 import { QuizStateChangeButton } from "./QuizStateChangeButton.tsx";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { ImageWithFallback } from "./ImageWithFallback.tsx";
 
 // non-negative values correspond to question indices
 const QUIZ_OPENING_STATE = -1;
 const QUIZ_CLOSING_STATE = -2;
 
-const MINIMUM_DISPLAY_TIME = 1300; // for minimum time to show loading message
+const MINIMUM_DISPLAY_TIME = 1900; // for minimum time to show loading message
 
 const loadingMessages = [
   "Warming up the disc… Get ready to huck some knowledge!",
@@ -44,6 +45,15 @@ const QuizApp: React.FC = () => {
 
   const queryClient = useQueryClient();
 
+  const preloadImages = (questions: QuizQuestion[]) => {
+    questions.forEach((q: QuizQuestion) => {
+      if (q.image?.url) {
+        const img = new Image();
+        img.src = q.image.url;
+      }
+    });
+  };
+
   const {
     data: questions,
     error,
@@ -53,14 +63,13 @@ const QuizApp: React.FC = () => {
     queryFn: getQuestions,
     enabled: false, // prevent auto-fetching on mount
   });
-
   const startQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
     setSelectedAnswer(null);
     setIsSubmitted(false);
 
-    setLoadingMessage(getRandomMessage(loadingMessages)); // it's triggered on every quiz start and but not on every re-render
+    setLoadingMessage(getRandomMessage(loadingMessages)); // it's triggered on every quiz start but not on every re-render
     setShowLoading(true);
 
     // prevent showing the old question before getting the new ones
@@ -68,6 +77,8 @@ const QuizApp: React.FC = () => {
 
     const loadStartTime = Date.now();
     refetch().finally(() => {
+      if (questions) preloadImages(questions);
+
       const elapsedTime = Date.now() - loadStartTime;
       const remainingTime = Math.max(MINIMUM_DISPLAY_TIME - elapsedTime, 0);
 
@@ -157,6 +168,13 @@ const QuizApp: React.FC = () => {
       </div>
 
       <h2>{currentQuestion.question}</h2>
+      {currentQuestion.image && (
+        <ImageWithFallback
+          src={currentQuestion.image.url}
+          alt={currentQuestion.image.alt}
+        />
+      )}
+
       <div>
         {currentQuestion.answers.map((answer: string, index: number) => (
           <AnswerOption
@@ -188,8 +206,6 @@ const QuizApp: React.FC = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center">
-          <div className="explanation"></div>
-
           <QuizStateChangeButton
             text={"Submit"}
             onClick={submitAnswer}
