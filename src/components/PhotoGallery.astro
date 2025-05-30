@@ -1,5 +1,5 @@
 ---
-import {Image} from "astro:assets";
+import { Image } from "astro:assets";
 import team2 from "../assets/team-2.jpg";
 import team3 from "../assets/team-3.jpg";
 import team4 from "../assets/team-4.jpg";
@@ -26,8 +26,8 @@ const photos = [
   { photo: action2, alt: "Pulling the Disc" },
   { photo: team2, alt: "Celebration Winner of the Spirit Price" },
 ];
-
 ---
+
 <div class="mt-4 grid gap-6 sm:grid-cols-2">
   {
     photos.map(({ photo, alt }) => (
