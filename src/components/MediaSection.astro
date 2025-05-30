@@ -40,14 +40,14 @@ const photos = [
   <a class="anchor" id={id}></a>
   <div class="mt-4 grid gap-6 sm:grid-cols-2">
     {
-      photos.map(({ photo, alt }) => (
-        <ContentContainer>
+      photos.map(({ photo, alt }, index) => (
+        <ContentContainer class=`photo ${index < 4 ? '' : 'hidden'}`>
           <Image src={photo} alt={alt} {...imageProps} />
         </ContentContainer>
       ))
     }
   </div>
-  <div id="loadButtonFlexContainer" class="flex justify-center mt-4">
+  <div id="loadMoreContainer" class="flex justify-center mt-4">
     <button id="loadMore" class="place-content-center">
         Load More
     </button>
@@ -56,3 +56,12 @@ const photos = [
     <Instagram client:load />
   </div>
 </SectionContainer>
+
+<script>
+  document.getElementById('loadMore')?.addEventListener('click', function () {
+    document.querySelectorAll('.photo.hidden').forEach(el => {
+      el.classList.remove('hidden');
+    });
+    this.style.display = 'none'; // Hide the button after clicking
+  });
+</script>
