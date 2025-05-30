@@ -11,28 +11,28 @@ interface Props {
 const { title, pubDate, author, tags, link } = Astro.props;
 ---
 
-<li>
-  <article class="flex flex-col gap-y-2">
-    <p>
-      Date:
-      <time datetime={pubDate.toString()}>{pubDate.toDateString()}</time>
-    </p>
-    <div class="flex flex-col gap-y-2">
-      <h3 class="link">
-        <a href={link}>{title}</a>
-      </h3>
-      <p>Author: {author}</p>
-    </div>
-    <div class="flex gap-1">
-      {
-        tags.map((tag) => (
-          <p>
-            <a href="#TODO" class="rounded-full bg-gray-50 px-3 py-1.5">
-              {tag}
-            </a>
-          </p>
-        ))
-      }
-    </div>
-  </article>
+<li class="bg-white bg-opacity-70 shadow-md rounded-sm p-4 transition hover:shadow-lg">
+  <a href={link}>
+    <article class="flex flex-col gap-2">
+      <p class="text-xs text-gray-500">
+        Date:
+        <time datetime={pubDate.toString()}>{pubDate.toDateString()}</time>
+      </p>
+      <div class="flex flex-col gap-1">
+        <h3>{title}</h3>
+        <p class="text-sm text-gray-600">Author: {author}</p>
+      </div>
+      <div class="flex flex-wrap gap-1">
+        {
+          tags.map((tag) => (
+            <p>
+              <a href="#TODO" class="text-sm rounded-xl bg-gray-100 text-gray-800 px-3 py-1.5 hover:bg-gray-200">
+                {tag}
+              </a>
+            </p>
+          ))
+        }
+      </div>
+    </article>
+  </a>
 </li>
