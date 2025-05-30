@@ -10,7 +10,7 @@ export const QuizProgress: React.FC<ProgressProps> = ({
   maxValue,
 }: ProgressProps) => {
   return (
-    <div className="absolute right-3 top-1" id="progress-bar">
+    <div className="absolute right-3 top-1 flex justify-end items-center" id="progress-bar">
       <label className="text-sm pr-1" htmlFor="quiz-progress">
         Quiz progress:
       </label>
