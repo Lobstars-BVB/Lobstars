@@ -50,12 +50,11 @@ const {
       trailingLinks.length > 0 && (
         <div class="flex gap-4 text-sm font-bold text-neon-pink-dark sm:text-base">
           {trailingLinks.map(({ label, href }) => (
-            <a class="link text-sm font-bold sm:text-base" href={href}>
-              {label}
-            </a>
+            <a href={href}>{label}</a>
           ))}
         </div>
       )
     }
   </nav>
+  <div class="border-2 border-b border-neon-pink-dark"></div>
 </header>
