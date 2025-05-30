@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import team3 from "../assets/team-3.jpg";
+import team5 from "../assets/team-5.jpg";
+import action3 from "../assets/action-3.jpg";
+import action1 from "../assets/action-1.jpg";
+import Instagram from "./Instagram";
+import SectionContainer from "./SectionContainer.astro";
+import ContentContainer from "./ContentContainer.astro";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+
+const imageProps = {
+  widths: [350, 400, 600],
+  sizes: "(max-width: 450px) 350px, (max-width: 800) 400px, 600px",
+  quality: 30,
+};
+
+const photos = [
+  { photo: team3, alt: "Team Photo Lobstars" },
+  { photo: action1, alt: "Releasing the Disc" },
+  { photo: action3, alt: "Throwing the disc with a marker" },
+  { photo: team5, alt: "Team Photo in Pink" },
+];
+---
+
+<SectionContainer id={id}>
+  <a class="anchor" id={id}></a>
+  <div class="mt-4 grid gap-6 sm:grid-cols-2">
+    {
+      photos.map(({ photo, alt }) => (
+        <ContentContainer>
+          <Image src={photo} alt={alt} {...imageProps} />
+        </ContentContainer>
+      ))
+    }
+    <div class="flex justify-center sm:col-span-2">
+      <a href="/media">
+        <button id="seeMore">See More</button>
+      </a>
+    </div>
+  </div>
+  <div class="mt-12 hidden sm:block">
+    <Instagram client:load />
+  </div>
+</SectionContainer>
