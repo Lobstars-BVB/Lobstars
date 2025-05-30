@@ -10,12 +10,15 @@ export const QuizProgress: React.FC<ProgressProps> = ({
   maxValue,
 }: ProgressProps) => {
   return (
-    <div className="absolute right-3 top-1 flex justify-end items-center" id="progress-bar">
-      <label className="text-sm pr-1" htmlFor="quiz-progress">
+    <div
+      className="absolute right-3 top-1 flex items-center justify-end"
+      id="progress-bar"
+    >
+      <label className="pr-1 text-sm" htmlFor="quiz-progress">
         Quiz progress:
       </label>
       <progress id="quiz-progress" max={maxValue} value={currentValue}>
-        { `${currentValue}/${maxValue}` }
+        {`${currentValue}/${maxValue}`}
       </progress>
     </div>
   );
