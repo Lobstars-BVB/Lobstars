@@ -6,6 +6,8 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<div class=`overflow-hidden rounded-sm border-2 border-neon-pink-dark ${className}`>
+<div
+  class=`overflow-hidden rounded-sm border-2 border-neon-pink-dark ${className}`
+>
   <slot />
 </div>
