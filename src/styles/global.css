@@ -4,24 +4,23 @@
 
 @layer components {
   html {
-    @apply bg-background;
+    @apply bg-neon-pink-light;
     scroll-behavior: smooth;
   }
 
   h1,
-  h2,
+  h2 {
+    @apply text-neon-pink-dark;
+  }
+
   h3,
   h4,
   p {
-    @apply text-main;
+    @apply text-dark-purple;
   }
 
   h1 {
     @apply text-xl font-bold;
-  }
-
-  h1.hero {
-    @apply text-base font-bold sm:text-lg;
   }
 
   h2 {
@@ -32,8 +31,17 @@
     @apply text-sm font-bold sm:text-base;
   }
 
-  p {
+  p,
+  li {
     @apply text-sm sm:text-base;
+  }
+
+  a {
+    @apply underline;
+  }
+
+  a:hover {
+    @apply no-underline;
   }
 
   a.anchor {
@@ -58,5 +66,10 @@
 
   .link:hover {
     @apply text-secondary-light;
+  }
+
+  button {
+    @apply min-w-32 rounded-lg bg-neon-pink-dark px-4 py-2 text-center text-sm text-neon-pink-light;
+    @apply hover:opacity-80;
   }
 }

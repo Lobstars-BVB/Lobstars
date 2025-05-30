@@ -1,30 +1,40 @@
 ---
-import logo from "../assets/logo.png";
+import claw from "../assets/claw.png";
 import { Image } from "astro:assets";
+
+type TrailingLink = {
+  href: string;
+  label: string;
+};
 
 interface Props {
   id: string;
-  logoHref: string;
-  trailingLinks: {
-    href: string;
-    label: string;
-  }[];
+  logoHref?: string; // TODO: clarify why this is needed
+  trailingLinks?: TrailingLink[];
 }
 
-const { id, logoHref, trailingLinks } = Astro.props;
+const defaultTrailingLinks: TrailingLink[] = [
+  {
+    href: "/",
+    label: "Home",
+  },
+  {
+    href: "/ultimate",
+    label: "What is Ultimate?",
+  },
+];
+
+const { id, logoHref, trailingLinks = defaultTrailingLinks } = Astro.props;
 ---
 
-<header
-  id={id}
-  class="fixed left-0 right-0 z-50 border-b border-secondary bg-background"
->
+<header id={id} class="fixed left-0 right-0 z-50 bg-neon-pink-light">
   <nav
-    class="mx-auto flex h-12 max-w-screen-xl items-center justify-between px-10 py-2"
+    class="mx-auto flex h-12 max-w-screen-xl items-center justify-between px-4 py-2"
   >
-    <a href={logoHref}>
-      <div class="w-10">
+    <a href="/">
+      <div class="w-16">
         <Image
-          src={logo}
+          src={claw}
           alt="lobstars logo"
           quality="med"
           widths={[250, 400]}
@@ -34,7 +44,7 @@ const { id, logoHref, trailingLinks } = Astro.props;
     </a>
     {
       trailingLinks.length > 0 && (
-        <div class="flex gap-4 ">
+        <div class="flex gap-4 text-sm font-bold text-neon-pink-dark sm:text-base">
           {trailingLinks.map(({ label, href }) => (
             <a class="link text-sm font-bold sm:text-base" href={href}>
               {label}

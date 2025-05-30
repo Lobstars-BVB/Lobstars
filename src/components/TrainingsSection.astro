@@ -1,4 +1,5 @@
 ---
+import SectionContainer from "./SectionContainer.astro";
 import TrainingView from "./TrainingView.astro";
 
 interface Props {
@@ -8,14 +9,14 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<section id={id} class="section-container">
+<SectionContainer id={id}>
   <a class="anchor" id={id}></a>
   <div class="flex flex-col gap-10 lg:flex-row lg:gap-20">
     <div class="max-w-2xl lg:w-1/2">
       <TrainingView
         title="Outdoor Training"
         day="Wednesday Evenings"
-        time="19:00"
+        time="18:45"
         place="Sportverein Berliner Verkehrs-Betriebe 49 e.V"
         address="Siegfriedstraße 71, 10365 Berlin"
         openMapURL="https://www.openstreetmap.org/?mlat=52.52968&mlon=13.50018#map=19/52.52968/13.50018"
@@ -26,7 +27,8 @@ const { id } = Astro.props;
     <div class="max-w-2xl lg:w-1/2">
       <TrainingView
         title="Indoor Training"
-        day="Returns Fall 2024"
+        day="Saturday Afternoons"
+        time="12:00"
         address="Elli-Voigt-Straße 9-8, 10367 Berlin"
         place="Sporthalle der Grundschule am Röderplatz"
         openMapURL="https://www.openstreetmap.org/?mlat=52.52892&mlon=13.48272#map=19/52.52892/13.48272"
@@ -40,4 +42,4 @@ const { id } = Astro.props;
     <span class="font-bold">* Note:</span> Training times are subject to change.
     Send us a message to confirm the training times before you come.
   </p>
-</section>
+</SectionContainer>

@@ -1,26 +1,44 @@
-<footer class="mt-20 border-t border-secondary">
+<footer class="mt-20 border-t-2 border-neon-pink-dark">
   <div
-    class="mx-auto flex max-w-screen-xl items-center justify-between px-10 pb-10 pt-5"
+    class="mx-auto flex max-w-screen-xl items-center justify-between space-x-3 px-4 pb-10 pt-5"
   >
     <div class="space-y-1">
       <p>
         <a
-          class="link font-bold"
+          class="text-sm font-bold text-neon-pink-dark hover:underline sm:text-base"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://svbvb49.de/frisbee">SV BVB 49 e.V.</a
+          href="https://www.svbvb49.de/abteilungen/frisbee"
+          >SV&nbsp;BVB&nbsp;49&nbsp;e.V.</a
         >
       </p>
       <p>
-        <a href="/imprint" class="link font-bold">Imprint</a>
+        <a
+          href="/imprint"
+          class="text-sm font-bold text-neon-pink-dark hover:underline sm:text-base"
+          >Imprint</a
+        >
       </p>
+    </div>
+    <div>
+      <Image
+        src={logo}
+        alt="Lobstars Ultimate Berlin"
+        quality={50}
+        width={200}
+        loading="lazy"
+      />
     </div>
     <a
       target="_blank"
       rel="noopener noreferrer"
       href="https://www.instagram.com/lobstarsfrisbee"
     >
-      <p class="link text-sm font-bold sm:text-base">@lobstarsfrisbee</p>
+      <p
+        class="text-sm font-bold text-neon-pink-dark hover:underline sm:text-base"
+      >
+        @lobstarsfrisbee
+      </p>
     </a>
   </div>
 </footer>

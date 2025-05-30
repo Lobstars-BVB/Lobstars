@@ -1,4 +1,6 @@
 ---
+import ContentContainer from "./ContentContainer.astro";
+
 interface Props {
   title: string;
   day: string;
@@ -23,7 +25,7 @@ const {
 ---
 
 <div class="space-y-4">
-  <h2 class="text-2xl font-bold text-secondary">{title}</h2>
+  <h2 class="text-2xl font-bold text-neon-pink-dark">{title}</h2>
   <div class="space-y-2 font-medium text-main">
     <div>
       <p><b>When:</b> {day}</p>
@@ -43,17 +45,17 @@ const {
       <p>{address}</p>
     </div>
   </div>
-  <div class="content-container p-1">
+  <ContentContainer>
     <iframe
       src={openMapIframeSrc}
       width="100%"
       height="300px"
       title=`Map of ${place} at ${address}`></iframe>
-  </div>
+  </ContentContainer>
   <div class="space-y-2 font-medium">
     <p>
       <a
-        class="link"
+        class="text-neon-pink-dark underline"
         target="_blank"
         rel="noopener noreferrer"
         href={openMapURL}>Open Street Map</a
@@ -61,7 +63,7 @@ const {
     </p>
     <p>
       <a
-        class="link"
+        class="text-neon-pink-dark underline"
         href={googleMapURL}
         target="_blank"
         rel="noopener noreferrer"
