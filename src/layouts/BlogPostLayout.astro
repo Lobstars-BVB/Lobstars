@@ -1,0 +1,57 @@
+---
+import Layout from "./Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
+const { frontmatter } = Astro.props;
+
+import "../styles/global.css";
+---
+
+<Layout title={frontmatter.title}>
+  <main class="h-full w-full">
+    <HeaderSection
+      id="header"
+      logoHref="/"
+      trailingLinks={[
+        {
+          href: "/",
+          label: "Home",
+        },
+        {
+          href: "/blog",
+          label: "Blog",
+        },
+      ]}
+    />
+
+    <section class="section-container">
+      <article class="blog">
+        <header>
+          <div>
+            <p class="mb-4">
+              <a href="/blog" class="link">Go Back</a>
+            </p>
+            <p class="text-l font-bold text-gray-900">{frontmatter.author}</p>
+            <p class="text-base text-gray-900">
+              <time datetime={frontmatter.pubDate.toString()}
+                >{frontmatter.pubDate.toDateString()}</time
+              >
+            </p>
+          </div>
+          <h1 class="text-3xl">{frontmatter.title}</h1>
+        </header>
+        <slot />
+        <style is:global>
+          .blog > header {
+            @apply pb-3.5;
+          }
+          .blog > h3,
+          .blog > p {
+            @apply pb-2.5;
+          }
+        </style>
+      </article>
+    </section>
+  </main>
+  <FooterSection />
+</Layout>

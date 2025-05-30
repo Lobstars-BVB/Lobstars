@@ -42,7 +42,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <p className="text-l text-main mb-10 text-center font-medium">
+      <p className="text-l mb-10 text-center font-medium text-main">
         Interested in joining a training? Other questions? Let us know!
       </p>
       {state === State.Sent && (
