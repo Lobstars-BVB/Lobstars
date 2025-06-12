@@ -34,7 +34,7 @@ import QuizAppWrapper from "../components/QuizAppWrapper.tsx";
   <main class="h-full w-full">
     <HeaderSection id="header" />
 
-    <section class="section-container grid gap-4 px-10 pt-32">
+    <section class="section-container grid gap-4 px-4 pt-32">
       <h1>Here we learn how to play Ultimate Frisbee with a game</h1>
 
       <p>
@@ -43,10 +43,9 @@ import QuizAppWrapper from "../components/QuizAppWrapper.tsx";
           href="https://rules.wfdf.sport/resources/"
           class="text-neon-pink-dark">WFDF</a
         >
-        <!-- revise the color -->
       </p>
 
-      <div style="text-align: center;">
+      <div class="text-center">
         <QuizAppWrapper client:only="react" />
       </div>
     </section>
