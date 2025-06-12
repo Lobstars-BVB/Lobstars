@@ -1,0 +1,21 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
+import PhotoGallery from "../components/PhotoGallery.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+---
+
+<Layout title="Media">
+  <main class="h-full w-full">
+    <HeaderSection id="header" />
+
+    <SectionContainer id="photos">
+      <h1>Photos</h1>
+      <PhotoGallery />
+    </SectionContainer>
+
+    <FooterSection />
+  </main>
+</Layout>
