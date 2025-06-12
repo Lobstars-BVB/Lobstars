@@ -1,13 +1,5 @@
----
-interface Props {
-  class?: string;
-}
-
-const { class: className } = Astro.props;
----
-
 <div
-  class=`overflow-hidden rounded-sm border-2 border-neon-pink-dark ${className ?? ""}`
+  class="overflow-hidden rounded-sm border-2 border-neon-pink-dark"
 >
   <slot />
 </div>
