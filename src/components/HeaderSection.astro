@@ -1,6 +1,7 @@
 ---
 import claw from "../assets/claw.png";
 import { Image } from "astro:assets";
+import NavMenu from "./NavMenu.tsx";
 
 interface Props {
   id: string;
@@ -43,15 +44,7 @@ const trailingLinks = [
         />
       </div>
     </a>
-    {
-      trailingLinks.length > 0 && (
-        <div class="flex gap-4 text-sm font-bold text-neon-pink-dark sm:text-base">
-          {trailingLinks.map(({ label, href }) => (
-            <a href={href}>{label}</a>
-          ))}
-        </div>
-      )
-    }
+    <NavMenu trailingLinks={trailingLinks} />
   </nav>
   <div class="border-2 border-b border-neon-pink-dark"></div>
 </header>
