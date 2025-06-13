@@ -45,7 +45,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menuItems }) => {
                           return (
                             <li key={linkItem.label}>
                               <NavigationMenu.Link asChild>
-                                <a href={linkItem.href}>{linkItem.label}</a>
+                                <a className="ListItemLink" href={linkItem.href}>{linkItem.label}</a>
                               </NavigationMenu.Link>
                             </li>
                           )
