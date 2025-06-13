@@ -21,10 +21,6 @@ type NavMenuProps = {
   menuItems: MenuItem[];
 };
 const NavMenu: React.FC<NavMenuProps> = ({ menuItems }) => {
-  const handleTriggerClick = (label: string) => {
-    console.log(`Trigger clicked: ${label}`);
-  };
-
   return (
     <NavigationMenu.Root className="NavigationMenuRoot">
       <NavigationMenu.List className="NavigationMenuList">
@@ -39,11 +35,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menuItems }) => {
             ) } else {
               return (
                 <NavigationMenu.Item key={menuItem.label}>
-                  <NavigationMenu.Trigger
-                    className="NavigationMenuTrigger"
-                    onClick={() => handleTriggerClick(menuItem.label)}
-                    onPointerEnter={() => console.log(`Hover enter: ${menuItem.label}`)}
-                  >
+                  <NavigationMenu.Trigger className="NavigationMenuTrigger">
                     {menuItem.label} <CaretDownIcon className="CaretDown" aria-hidden />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="NavigationMenuContent">
