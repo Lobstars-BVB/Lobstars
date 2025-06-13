@@ -35,11 +35,11 @@
 .NavigationMenuList {
     display: flex;
     justify-content: center;
-    background-color: white;
+    /*background-color: white;*/
     padding: 4px;
     border-radius: 6px;
     list-style: none;
-    box-shadow: 0 2px 10px var(--black-a7);
+    /*box-shadow: 0 2px 10px var(--black-a7);*/
     margin: 0;
 }
 
@@ -48,7 +48,7 @@
     padding: 8px 12px;
     outline: none;
     user-select: none;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 1;
     border-radius: 4px;
     font-size: 15px;
@@ -60,10 +60,11 @@
 }
 .NavigationMenuTrigger:hover,
 .NavigationMenuLink:hover {
-    @apply bg-neon-pink-50
+    @apply text-neon-pink-600
 }
 
 .NavigationMenuTrigger {
+    padding: 8px 4px 8px 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -169,6 +170,7 @@
     padding: 8px 12px;
     border-radius: 6px;
     font-size: 14px;
+    font-weight: 600;
     line-height: 1;
     @apply text-neon-pink-dark;
 }
