@@ -20,46 +20,6 @@ export type MenuItem = LinkItem | DropdownItem;
 type NavMenuProps = {
   menuItems: MenuItem[];
 };
-
-// const DropdownMenuItem: React.FC<Omit<DropdownItem, "type">> = ({ label, children }) => (
-//   <NavigationMenu.Item className="NavigationMenuItem">
-//     <NavigationMenu.Trigger className="NavigationMenuTrigger">
-//       {label} <CaretDownIcon className="CaretDown" aria-hidden />
-//     </NavigationMenu.Trigger>
-//     <NavigationMenu.Content className="NavigationMenuContent">
-//       <ul className="List two">
-//         {children.map((child) => (
-//           <li key={child.href}>
-//             <NavigationMenu.Link asChild>
-//               <a href={child.href} className="ListItemLink">
-//                 {child.label}
-//               </a>
-//             </NavigationMenu.Link>
-//           </li>
-//         ))}
-//       </ul>
-//     </NavigationMenu.Content>
-//   </NavigationMenu.Item>
-// );
-//
-// const NavMenu: React.FC<NavMenuProps> = ({ menuItems }: NavMenuProps) => {
-//   return (
-//     <NavigationMenu.Root className="NavigationMenuRoot">
-//       <NavigationMenu.List className="NavigationMenuList">
-//         {menuItems.map((menuItem: MenuItem) =>
-//           menuItem.type == "link" ? (
-//             <NavigationMenu.Link href={menuItem.href} className="NavigationMenuLink">
-//               {menuItem.label}
-//             </NavigationMenu.Link>
-//           ) : (
-//             <DropdownMenuItem label={menuItem.label} children={menuItem.children} />
-//           )
-//         )}
-//       </NavigationMenu.List>
-//     </NavigationMenu.Root>
-//   );
-// };
-
 const NavMenu: React.FC<NavMenuProps> = ({ menuItems }) => {
   const handleTriggerClick = (label: string) => {
     console.log(`Trigger clicked: ${label}`);
