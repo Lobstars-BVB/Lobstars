@@ -39,7 +39,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menuItems }) => {
                     {menuItem.label} <CaretDownIcon className="CaretDown" aria-hidden />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="NavigationMenuContent">
-                    <ul className="List">
+                    <ul className="DropdownList">
                       {
                         menuItem.children.map((linkItem: LinkItem) => {
                           return (

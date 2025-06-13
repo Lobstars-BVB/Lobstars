@@ -14,14 +14,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 2px;
-    padding: 8px 12px;
     outline: none;
-    user-select: none;
-    font-weight: 500;
-    line-height: 1;
-    border-radius: 4px;
-    font-size: 15px;
-    @apply text-neon-pink-dark
 }
 
 .NavigationMenuRoot {
@@ -50,7 +43,7 @@
     line-height: 1;
     border-radius: 4px;
     font-size: 15px;
-    @apply text-neon-pink-dark
+    @apply text-neon-pink-dark;
 }
 .NavigationMenuTrigger:focus,
 .NavigationMenuLink:focus {
@@ -72,8 +65,6 @@
 .NavigationMenuLink {
     display: block;
     text-decoration: none;
-    font-size: 15px;
-    line-height: 1;
 }
 
 .NavigationMenuContent {
@@ -150,11 +141,11 @@
     }
 }
 
-.List {
+.DropdownList {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    padding: 4px;
+    padding: 2px;
     margin: 0;
     list-style: none;
     min-width: 180px;
@@ -166,7 +157,7 @@
     text-decoration: none;
     user-select: none;
     padding: 8px 12px;
-    border-radius: 6px;
+    border-radius: 4px;
     font-size: 14px;
     font-weight: 600;
     line-height: 1;
@@ -193,7 +184,7 @@
     position: relative;
     @apply text-neon-pink-dark;
     top: 1px;
-    transition: transform 250ms ease;
+    transition: transform 250ms ease-out;
 }
 [data-state="open"] > .CaretDown {
     transform: rotate(-180deg);
