@@ -126,10 +126,6 @@
     position: relative;
     transform-origin: top right;
     margin-top: 10px;
-    /* Use Radix's CSS variables to position under the trigger */
-    left: var(--radix-navigation-menu-trigger-left, 0);
-    transform: translateX(calc(var(--radix-navigation-menu-trigger-width, 0px) / 2 - 10%));
-    /* This centers the viewport under the trigger */
     width: 100%;
     background-color: white;
     border-radius: 6px;
