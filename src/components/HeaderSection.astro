@@ -2,13 +2,18 @@
 import claw from "../assets/claw.png";
 import { Image } from "astro:assets";
 
+type TrailingLink = {
+  href: string;
+  label: string;
+};
+
 interface Props {
   id: string;
+  logoHref?: string;
+  trailingLinks?: TrailingLink[];
 }
 
-const { id } = Astro.props;
-
-const trailingLinks = [
+const defaultTrailingLinks: TrailingLink[] = [
   {
     href: "/",
     label: "Home",
@@ -26,13 +31,19 @@ const trailingLinks = [
     label: "Media",
   },
 ];
+
+const {
+  id,
+  logoHref = "/",
+  trailingLinks = defaultTrailingLinks,
+} = Astro.props;
 ---
 
 <header id={id} class="fixed left-0 right-0 z-50 bg-neon-pink-light">
   <nav
     class="mx-auto flex h-12 max-w-screen-xl items-center justify-between px-4 py-2"
   >
-    <a href="/">
+    <a href={logoHref}>
       <div class="w-16">
         <Image
           src={claw}
