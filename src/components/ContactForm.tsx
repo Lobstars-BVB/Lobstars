@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { FormEvent } from "react";
 
 enum State {
@@ -9,13 +9,44 @@ enum State {
   Error = "Error",
 }
 
+const possibleSpamContent = (name: string, message: string): boolean => {
+  // Check if message is too short or looks like spam
+  if (message.trim().length < 16) return true;
+
+  // Check for excessive special characters (common in spam)
+  const specialCharRatio =
+    (message.match(/[^a-zA-Z0-9\s.,!?-]/g) || []).length / message.length;
+  if (specialCharRatio > 0.3) return true;
+
+  // Check for repeated characters (common spam pattern)
+  if (/(.)\1{5,}/.test(message) || /(.)\1{5,}/.test(name)) return true;
+
+  return false;
+};
+
 export default function ContactForm() {
-  const [state, setState] = useState(State.Input);
+  const [state, setState] = useState<State>(State.Input);
+  const formLoadTime = useRef<number>(Date.now());
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
     if (state !== State.Input) return;
+
+    // Anti-spam checks
+    const timeSinceLoad = Date.now() - formLoadTime.current;
+
+    // Block if submitted too quickly (bots typically submit instantly)
+    if (timeSinceLoad < 3000) {
+      return;
+    }
+
+    // Block if submitted unreasonably slowly (potential bot behavior)
+    if (timeSinceLoad > 3600_000) {
+      // 1 hour
+      setState(State.Error);
+      return;
+    }
 
     setState(State.Sending);
 
@@ -23,6 +54,16 @@ export default function ContactForm() {
     const formData = new FormData(form);
 
     const formJson = Object.fromEntries(formData.entries());
+
+    // since the data comes from input and textarea elements
+    // we are surely dealing with strings
+    if (
+      possibleSpamContent(formJson.name as string, formJson.message as string)
+    ) {
+      setState(State.Error);
+      return;
+    }
+
     try {
       await emailjs.send(
         "default_service",
@@ -31,6 +72,7 @@ export default function ContactForm() {
           from_name: formJson.name,
           from_email: formJson.email,
           message: formJson.message,
+          timestamp: new Date().toISOString(),
         },
         { publicKey: "YGL6jQ4ZZE8y_Ihth" },
       );
