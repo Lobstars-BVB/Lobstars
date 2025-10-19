@@ -41,6 +41,11 @@
     @apply hover:opacity-80;
   }
 
+  button:not(.NavigationMenuTrigger) {
+    @apply min-w-32 rounded-lg bg-neon-pink-dark px-4 py-2 text-center text-sm text-neon-pink-light;
+    @apply hover:opacity-80;
+  }
+
   a.anchor {
     @apply invisible relative -top-14 block;
   }

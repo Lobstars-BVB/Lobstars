@@ -1,6 +1,7 @@
 ---
 import claw from "../assets/claw.png";
 import { Image } from "astro:assets";
+import NavMenu, { type MenuItem } from "./NavMenu.tsx";
 
 interface Props {
   id: string;
@@ -8,20 +9,30 @@ interface Props {
 
 const { id } = Astro.props;
 
-const trailingLinks = [
+const menuItems: MenuItem[] = [
   {
+    type: "link",
     href: "/",
     label: "Home",
   },
   {
-    href: "/ultimate",
-    label: "What is Ultimate?",
+    type: "dropdown",
+    label: "Learn",
+    children: [
+      {
+        type: "link",
+        href: "/ultimate",
+        label: "What is Ultimate?",
+      },
+      {
+        type: "link",
+        href: "/quiz",
+        label: "Quiz",
+      },
+    ],
   },
   {
-    href: "/quiz",
-    label: "Quiz",
-  },
-  {
+    type: "link",
     href: "/media",
     label: "Media",
   },
@@ -43,15 +54,7 @@ const trailingLinks = [
         />
       </div>
     </a>
-    {
-      trailingLinks.length > 0 && (
-        <div class="flex gap-4 text-sm font-bold text-neon-pink-dark sm:text-base">
-          {trailingLinks.map(({ label, href }) => (
-            <a href={href}>{label}</a>
-          ))}
-        </div>
-      )
-    }
+    <NavMenu client:load menuItems={menuItems} />
   </nav>
   <div class="border-2 border-b border-neon-pink-dark"></div>
 </header>
