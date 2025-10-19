@@ -54,7 +54,7 @@ export default function ContactForm() {
           <p>
             Send us an email at{" "}
             <span className="font-bold text-neon-pink-dark">
-              lobstars.bvb@<span className="display: none;">ignore-</span>
+              lobstars.bvb@<span className="hidden">ignore-</span>
               gmail.com
             </span>
           </p>
