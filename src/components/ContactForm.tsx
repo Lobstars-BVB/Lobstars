@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import {useRef, useState} from "react";
+import { useRef, useState } from "react";
 import type { FormEvent } from "react";
 
 enum State {
@@ -10,19 +10,19 @@ enum State {
 }
 
 const possibleSpamContent = (name: string, message: string): boolean => {
-
   // Check if message is too short or looks like spam
   if (message.trim().length < 16) return true;
 
   // Check for excessive special characters (common in spam)
-  const specialCharRatio = (message.match(/[^a-zA-Z0-9\s.,!?-]/g) || []).length / message.length;
+  const specialCharRatio =
+    (message.match(/[^a-zA-Z0-9\s.,!?-]/g) || []).length / message.length;
   if (specialCharRatio > 0.3) return true;
 
   // Check for repeated characters (common spam pattern)
   if (/(.)\1{5,}/.test(message) || /(.)\1{5,}/.test(name)) return true;
 
   return false;
-}
+};
 
 export default function ContactForm() {
   const [state, setState] = useState<State>(State.Input);
@@ -38,12 +38,12 @@ export default function ContactForm() {
 
     // Block if submitted too quickly (bots typically submit instantly)
     if (timeSinceLoad < 3000) {
-      console.log("Blocked: submitted too quickly");
       return;
     }
 
     // Block if submitted unreasonably slowly (potential bot behavior)
-    if (timeSinceLoad > 3600_000) { // 1 hour
+    if (timeSinceLoad > 3600_000) {
+      // 1 hour
       setState(State.Error);
       return;
     }
@@ -57,11 +57,12 @@ export default function ContactForm() {
 
     // since the data comes from input and textarea elements
     // we are surely dealing with strings
-    if (possibleSpamContent(formJson.name as string, formJson.message as string)) {
+    if (
+      possibleSpamContent(formJson.name as string, formJson.message as string)
+    ) {
       setState(State.Error);
       return;
     }
-
 
     try {
       await emailjs.send(
