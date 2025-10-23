@@ -24,6 +24,10 @@ export default function ContactForm() {
 
     const formJson = Object.fromEntries(formData.entries());
     try {
+      if (formJson.company) {
+        setState(State.Sent);
+        return;
+      }
       await emailjs.send(
         "default_service",
         "template_aillhuc",
@@ -95,6 +99,23 @@ export default function ContactForm() {
               required
               className="h-32 w-full rounded-md border border-gray-300 px-4 py-2"
             ></textarea>
+          </div>
+
+          <div className="hidden">
+            <label
+              htmlFor="company"
+              className="mb-2 block text-sm font-bold"
+              aria-hidden="true"
+            >
+              Company:
+            </label>
+            <input
+              name="company"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="w-full rounded-md border border-gray-300 px-4 py-2"
+            />
           </div>
 
           <button
